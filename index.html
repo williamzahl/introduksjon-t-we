@@ -379,11 +379,15 @@ h2.st{font-size:22px;color:var(--navy);margin:34px 0 14px;font-weight:650}
   h2.st{margin:40px 0 18px;line-height:1.18}
   .grid{gap:14px;margin:22px 0 34px}
   .info{padding:21px 18px}
+}
+<style>
+@media(max-width:620px){
   .wrap{padding-top:28px!important}
   .lesson{scroll-margin-top:82px!important}
   .mobile-sticky{top:0!important}
   .mobile-sticky-menu{flex:0 0 auto}
 }
+</style>
 </style>
 
 <style>
@@ -467,27 +471,23 @@ h2.st{font-size:22px;color:var(--navy);margin:34px 0 14px;font-weight:650}
   .twe-page-option:hover,.twe-page-option.active{background:var(--pale);color:var(--blue)}
 }
 </style>
+
 <style>
-/* FINAL CLEAN UI OVERRIDES */
-.brand b{font-weight:550;letter-spacing:0;word-spacing:8px}
-.twe-page-select{position:relative!important;display:block!important;flex:0 0 auto!important;margin-left:auto!important}
-.twe-page-button{box-sizing:border-box!important;width:82px!important;min-width:82px!important;height:36px!important;padding:7px 8px!important;font-size:12px!important;font-weight:600!important;line-height:1!important;border-radius:10px!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:5px!important}
-.twe-page-menu{box-sizing:border-box!important;position:absolute!important;right:0!important;left:auto!important;top:calc(100% + 6px)!important;width:138px!important;min-width:138px!important;max-width:138px!important;padding:4px!important;display:none!important;z-index:200!important;border-radius:12px!important}
-.twe-page-select.open .twe-page-menu{display:block!important}
-.twe-page-option{box-sizing:border-box!important;width:100%!important;padding:8px 8px!important;font-size:12px!important;font-weight:600!important;line-height:1.15!important;border-radius:8px!important;white-space:nowrap!important}
+/* v16 – compact T-We selector; preserve existing layout */
+.twe-page-select{position:relative;flex:0 0 auto;margin-left:auto}
+.twe-page-button{min-width:82px!important;width:82px!important;padding:7px 8px!important;font-size:12px!important;font-weight:650!important;line-height:1.1}
+.twe-page-menu{width:165px!important;padding:4px!important}
+.twe-page-option{padding:8px 9px!important;font-size:12px!important;font-weight:600!important;line-height:1.25!important;white-space:nowrap}
+.brand b{font-weight:600!important;letter-spacing:-.35px!important}
 @media(min-width:621px){
-  .twe-page-button{width:88px!important;min-width:88px!important;height:36px!important}
-  .twe-page-menu{width:138px!important;min-width:138px!important;max-width:138px!important}
+  .twe-page-button{min-width:82px!important;width:82px!important}
+  .twe-page-menu{width:165px!important}
 }
 @media(max-width:620px){
-  .brand b{font-weight:550!important;letter-spacing:0!important;word-spacing:0!important}
-  .brand b{font-size:22px!important}
-  .twe-pdf-head{position:relative!important;display:block!important;padding:16px!important}
-  .twe-pdf-title{padding-right:96px!important}
-  .twe-pdf-title p{white-space:nowrap!important;width:max-content!important;max-width:none!important}
-  .twe-page-select{position:absolute!important;right:16px!important;top:16px!important;width:82px!important;margin:0!important}
-  .twe-page-button{width:82px!important;min-width:82px!important}
-  .twe-page-menu{width:138px!important;min-width:138px!important;max-width:138px!important;right:0!important}
+  .twe-pdf-title{padding-right:94px!important}
+  .twe-page-select{right:16px!important;top:16px!important;width:82px!important}
+  .twe-page-button{min-width:82px!important;width:82px!important}
+  .twe-page-menu{width:165px!important;max-width:calc(100vw - 28px)!important}
 }
 </style>
 </head>
@@ -505,7 +505,7 @@ h2.st{font-size:22px;color:var(--navy);margin:34px 0 14px;font-weight:650}
   <div class="topin">
     <div class="brandrow">
       <div class="brand">
-        <b id="brand">Fiber &amp; T-We&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Introduksjon</b>
+        <b id="brand">Fiber &amp; T-We&nbsp;&nbsp;&nbsp; Introduksjon</b>
         <div class="sub" id="sub"></div>
       </div>
       <div class="topright">
@@ -606,9 +606,6 @@ h2.st{font-size:22px;color:var(--navy);margin:34px 0 14px;font-weight:650}
   </div>
 </section>
 
-
-<button id="backToTop" class="back-to-top" type="button" aria-label="Til toppen" title="Til toppen">↑</button>
-
 <div class="footer" id="footer">En enkel introduksjon til Fiber &amp; T-We. Dette er ikke en offisiell nettside fra Telenor. Innholdet er laget som et uavhengig introduksjons- og opplæringsmateriell, og er ikke ment som en erstatning for Telenors offisielle informasjon. Tilgjengelighet, priser, vilkår og innhold kan endres over tid.</div>
 
 <script>
@@ -669,12 +666,12 @@ no:{
       <div class="twe-page-select" id="twePageSelectWrap">
        <button class="twe-page-button" id="twePageButton" type="button" aria-haspopup="listbox" aria-expanded="false"><span>Side 1</span><span aria-hidden="true">⌄</span></button>
        <div class="twe-page-menu" id="twePageMenu" role="listbox" aria-label="Velg side">
-        <button class="twe-page-option active" type="button" data-page="1" role="option">Side 1 av 6</button>
-        <button class="twe-page-option" type="button" data-page="2" role="option">Side 2 av 6</button>
-        <button class="twe-page-option" type="button" data-page="3" role="option">Side 3 av 6</button>
-        <button class="twe-page-option" type="button" data-page="4" role="option">Side 4 av 6</button>
-        <button class="twe-page-option" type="button" data-page="5" role="option">Side 5 av 6</button>
-        <button class="twe-page-option" type="button" data-page="6" role="option">Side 6 av 6</button>
+        <button class="twe-page-option active" type="button" data-page="1" role="option">1 - TV &amp; Streaming</button>
+        <button class="twe-page-option" type="button" data-page="2" role="option">2 - Hva kan du velge?</button>
+        <button class="twe-page-option" type="button" data-page="3" role="option">3 - Netflix &amp; Viaplay</button>
+        <button class="twe-page-option" type="button" data-page="4" role="option">4 - HBO &amp; Apple TV</button>
+        <button class="twe-page-option" type="button" data-page="5" role="option">5 - TV2 &amp; SkyShowtime</button>
+        <button class="twe-page-option" type="button" data-page="6" role="option">6 - Podme &amp; Storytell</button>
        </div>
       </div>
      </div>
@@ -835,7 +832,7 @@ function render(){
   const t=T[lang], L=t.lessons;
   document.documentElement.lang=lang;
   document.title=t.brand.replace(/<br\s*\/?\s*>/gi," ");
-  document.getElementById("brand").innerHTML=window.matchMedia("(max-width: 620px)").matches ? t.brand : t.brand.replace(/<br\s*\/?>/gi," ");
+  document.getElementById("brand").innerHTML=window.matchMedia("(max-width: 620px)").matches ? t.brand : t.brand.replace(/<br\s*\/?\s*>/gi," ").replace(/(T-We)\s+(Introduksjon)/,"$1\u00a0\u00a0\u00a0\u00a0$2");
   document.getElementById("sub").textContent=t.sub;
   document.getElementById("progressText").textContent=t.progress;
   document.getElementById("packageLabel").textContent=t.package;
@@ -1000,34 +997,44 @@ stickyMenuBtn?.addEventListener("click",()=>{
 window.addEventListener("scroll",updateMobileSticky,{passive:true});
 window.addEventListener("resize",updateMobileSticky);
 
-const backToTop=document.getElementById("backToTop");
-let lastScrollY=window.scrollY;
-let arrowTimer;
-function updateBackToTop(){
-  if(!backToTop)return;
-  const max=Math.max(1,document.documentElement.scrollHeight-window.innerHeight);
-  const ratio=window.scrollY/max;
-  const scrollingUp=window.scrollY < lastScrollY-2;
-  if(ratio>0.30 && scrollingUp){
-    backToTop.classList.add("show");
-    clearTimeout(arrowTimer);
-    arrowTimer=setTimeout(()=>backToTop.classList.remove("show"),2200);
-  }
-  if(window.scrollY<=80) backToTop.classList.remove("show");
-  lastScrollY=window.scrollY;
-}
-backToTop?.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
-window.addEventListener("scroll",updateBackToTop,{passive:true});
-
 render();
 
 </script>
 
-<style>
-.back-to-top{position:fixed;right:18px;bottom:18px;z-index:1200;width:44px;height:44px;border:1px solid var(--line);border-radius:50%;background:#fff;color:var(--navy);box-shadow:0 8px 24px rgba(9,55,85,.18);font-size:24px;line-height:1;display:grid;place-items:center;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .18s ease,transform .18s ease,visibility .18s ease}
-.back-to-top.show{opacity:1;visibility:visible;transform:translateY(0)}
-@media(max-width:620px){.back-to-top{right:14px;bottom:14px;width:42px;height:42px;font-size:22px}}
-</style>
-
 </body>
 </html>
+<style>
+/* Final T-We page menu polish: same compact dropdown on desktop and mobile. */
+.twe-page-select{display:block;position:relative;flex:0 0 auto;margin-left:auto}
+.twe-page-button{min-width:112px;padding:9px 11px;font-size:13px;font-weight:750;border:1px solid var(--line);border-radius:11px;background:#fff;color:var(--navy);cursor:pointer;text-align:left;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.twe-page-menu{position:absolute;right:0;top:calc(100% + 7px);z-index:80;display:none;width:180px;padding:6px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 14px 32px rgba(9,55,85,.16)}
+.twe-page-select.open .twe-page-menu{display:block}
+.twe-page-option{display:block;width:100%;border:0;background:transparent;color:var(--navy);padding:10px 12px;border-radius:10px;text-align:left;font:inherit;font-size:13px;font-weight:750;cursor:pointer}
+.twe-page-option:hover,.twe-page-option.active{background:var(--pale);color:var(--blue)}
+@media(max-width:620px){
+  .lesson{margin-bottom:58px !important;padding-bottom:58px !important}
+  .twe-pdf{margin-top:30px;margin-bottom:40px}
+  .twe-page-button{min-width:104px;width:104px;padding:9px 10px;font-size:13px}
+  .twe-page-menu{width:180px}
+}
+</style>
+
+<style>
+/* v12 – tighter T-We page selector on mobile + lighter header title */
+.brand b{font-weight:650;letter-spacing:-.45px}
+@media(min-width:621px){
+  .twe-page-menu{width:165px}
+  .twe-page-button{min-width:100px;width:100px}
+}
+@media(max-width:620px){
+  .twe-pdf-head{position:relative;display:block;padding:16px!important}
+  .twe-pdf-title{padding-right:104px}
+  .twe-pdf-title h3{font-size:18px;line-height:1.18}
+  .twe-pdf-title p{display:block;white-space:nowrap;overflow:visible;width:max-content;max-width:none;font-size:13px;line-height:1.55;margin-top:6px}
+  .twe-page-select{position:absolute!important;right:16px;top:16px;margin:0!important;width:88px!important;display:block!important}
+  .twe-page-button{min-width:88px!important;width:88px!important;padding:8px 8px!important;font-size:12px!important}
+  .twe-page-menu{width:220px!important;max-width:calc(100vw - 28px);right:0!important}
+  .twe-page-option{padding:9px 10px!important;font-size:12px!important;line-height:1.25}
+  .brand b{font-weight:650;letter-spacing:-.4px}
+}
+</style>
