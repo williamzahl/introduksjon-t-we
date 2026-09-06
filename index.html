@@ -130,7 +130,7 @@ h2.st{font-size:22px;color:var(--navy);margin:34px 0 14px;font-weight:650}
   .contacttitleline{align-items:flex-start}
   .brand b br{display:block}
   .brand b{max-width:170px}
-  .mobile-menu-btn{display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+  .mobile-menu-btn{display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
   .side{display:none;position:relative;top:auto;margin:0 0 18px;padding:12px;box-shadow:0 8px 22px rgba(9,55,85,.08)}
   .side.mobile-open{display:block}
 
@@ -138,8 +138,9 @@ h2.st{font-size:22px;color:var(--navy);margin:34px 0 14px;font-weight:650}
   .brand b{font-size:22px;line-height:1.02}
   .topright{gap:9px}
   .count{font-size:11px}
-  .lang{padding:7px 8px}
+  .lang{height:32px;padding:0 8px}
   .lang select{font-size:11px;max-width:82px}
+  .mobile-menu-icon{font-size:18px;line-height:1;font-weight:700}
   .wrap{padding:18px 14px 0}
   .side{top:auto}
   .side button{padding:9px 8px}
@@ -189,7 +190,7 @@ h2.st{font-size:22px;color:var(--navy);margin:34px 0 14px;font-weight:650}
   }
   .topright{grid-column:2;grid-row:1;align-items:flex-end}
   .lang{order:1;max-width:150px;padding:7px 9px;white-space:nowrap}
-  .mobile-menu-btn{order:2;display:inline-flex;align-items:center;gap:6px;padding:9px 12px;border-radius:11px;font-size:13px}
+  .mobile-menu-btn{order:2;display:inline-flex;align-items:center;gap:7px;height:32px;padding:0 11px;border-radius:11px;font-size:11px;font-weight:750}
   .count{order:3;font-size:11px;line-height:1.2}
   .brand{grid-column:1;grid-row:1;align-self:start}
   .progress{margin-top:18px}
@@ -356,7 +357,8 @@ h2.st{font-size:22px;color:var(--navy);margin:34px 0 14px;font-weight:650}
   .mobile-sticky-top{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:12px;font-weight:750;margin-bottom:3px}
   .mobile-sticky-progress{height:4px;border-radius:99px;background:rgba(255,255,255,.28);overflow:hidden}
   .mobile-sticky-fill{height:100%;width:0;background:#a9edff;border-radius:99px;transition:width .2s}
-  .mobile-sticky-menu{border:1px solid rgba(255,255,255,.34);background:rgba(255,255,255,.10);color:#fff;border-radius:10px;padding:7px 11px;font-size:12px;font-weight:800;white-space:nowrap;align-self:center}
+  .mobile-sticky-menu{border:1px solid rgba(255,255,255,.34);background:rgba(255,255,255,.10);color:#fff;border-radius:10px;height:32px;min-width:86px;padding:0 11px;font-size:11px;font-weight:750;white-space:nowrap;align-self:center;display:inline-flex;align-items:center;justify-content:center;gap:7px}
+  .sticky-menu-icon{font-size:18px;line-height:1;font-weight:700}
 }
 </style>
 
@@ -517,7 +519,7 @@ h2.st{font-size:22px;color:var(--navy);margin:34px 0 14px;font-weight:650}
     <div class="mobile-sticky-top"><span id="stickyCount">Leksjon 1 av 7</span><span id="stickyPct">0%</span></div>
     <div class="mobile-sticky-progress"><div class="mobile-sticky-fill" id="stickyFill"></div></div>
   </div>
-  <button class="mobile-sticky-menu" id="stickyMenuBtn" type="button">☰ Meny</button>
+  <button class="mobile-sticky-menu" id="stickyMenuBtn" type="button"><span class="sticky-menu-icon" aria-hidden="true">☰</span> <span id="stickyMenuText">Meny</span></button>
 </div>
 
 <header class="top">
@@ -528,7 +530,7 @@ h2.st{font-size:22px;color:var(--navy);margin:34px 0 14px;font-weight:650}
         <div class="sub" id="sub"></div>
       </div>
       <div class="topright">
-        <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-expanded="false">☰ <span id="mobileMenuText">Meny</span></button>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-expanded="false"><span class="mobile-menu-icon" aria-hidden="true">☰</span> <span id="mobileMenuText">Meny</span></button>
         <div class="count" id="count">Leksjon 1 av 7</div>
         <label class="lang">🌐
           <select id="languageSelect" aria-label="Language">
@@ -834,6 +836,7 @@ const stickyCount=document.getElementById("stickyCount");
 const stickyPct=document.getElementById("stickyPct");
 const stickyFill=document.getElementById("stickyFill");
 const stickyMenuBtn=document.getElementById("stickyMenuBtn");
+const stickyMenuText=document.getElementById("stickyMenuText");
 let current=0,observer;
 
 function updateMobileSticky(){
@@ -846,6 +849,7 @@ function updateMobileSticky(){
   if(stickyCount) stickyCount.textContent=document.getElementById("count").textContent;
   if(stickyPct) stickyPct.textContent=document.getElementById("pct").textContent;
   if(stickyFill) stickyFill.style.width=document.getElementById("fill").style.width || "0%";
+  if(stickyMenuText) stickyMenuText.textContent=(T[lang] && T[lang].menu) ? T[lang].menu : "Menu";
 }
 
 function render(){
@@ -860,6 +864,7 @@ function render(){
   document.getElementById("contactLabel").textContent=t.contact;
   document.getElementById("contactBtn").textContent=t.contactBtn;
   document.getElementById("mobileMenuText").textContent=t.menu||"Menu";
+  if(stickyMenuText) stickyMenuText.textContent=t.menu||"Menu";
   document.getElementById("count").textContent=`${t.lesson} ${current+1} ${t.count} ${L.length}`;
 
   const buttons=[...side.querySelectorAll(".lb")];
