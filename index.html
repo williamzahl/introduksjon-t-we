@@ -880,14 +880,14 @@ function render(){
   // T-We & Streaming viewer: keep the same image/dropdown component on every language.
   // The Norwegian lesson already contains the component; other translations only contain
   // the lesson text, so add the same viewer to those versions before the first video.
-  if(!content.querySelector(".twe-pdf")){
-    const tweByLang={
+  const tweByLang={
       en:{title:"T-We & Streaming",three:"3 options",page:"Page",sub:"Overview of streaming choices in the T-We package.",aria:"Choose page",sideWord:"page",items:["1 - TV & Streaming","2 - What can you choose?","3 - Netflix & Viaplay","4 - HBO & Apple TV","5 - TV2 & SkyShowtime","6 - Podme & Storytell"]},
       es:{title:"T-We & Streaming",three:"3 opciones",page:"Página",sub:"Descripción general de las opciones de streaming del paquete T-We.",aria:"Elegir página",sideWord:"página",items:["1 - TV y streaming","2 - ¿Qué puedes elegir?","3 - Netflix y Viaplay","4 - HBO y Apple TV","5 - TV2 y SkyShowtime","6 - Podme y Storytell"]},
       pl:{title:"T-We i streaming",three:"3 opcje",page:"Strona",sub:"Przegląd opcji streamingu w pakiecie T-We.",aria:"Wybierz stronę",sideWord:"strona",items:["1 - TV i streaming","2 - Co możesz wybrać?","3 - Netflix i Viaplay","4 - HBO i Apple TV","5 - TV2 i SkyShowtime","6 - Podme i Storytell"]},
       de:{title:"T-We & Streaming",three:"3 Optionen",page:"Seite",sub:"Übersicht über die Streaming-Auswahl im T-We-Paket.",aria:"Seite auswählen",sideWord:"Seite",items:["1 - TV & Streaming","2 - Was kannst du wählen?","3 - Netflix & Viaplay","4 - HBO & Apple TV","5 - TV2 & SkyShowtime","6 - Podme & Storytell"]}
-    };
-    const tw=tweByLang[lang];
+  };
+  const tw=tweByLang[lang];
+  if(!content.querySelector(".twe-pdf")){
     if(tw){
       const l2=content.querySelector("#lesson-2");
       const firstVideo=l2?.querySelector(".video");
