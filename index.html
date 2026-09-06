@@ -877,6 +877,28 @@ function render(){
       </div>
     </section>`).join("");
 
+  // T-We & Streaming viewer: keep the same image/dropdown component on every language.
+  // The Norwegian lesson already contains the component; other translations only contain
+  // the lesson text, so add the same viewer to those versions before the first video.
+  if(!content.querySelector(".twe-pdf")){
+    const tweByLang={
+      en:{title:"T-We & Streaming",sub:"Overview of streaming choices in the T-We package.",aria:"Choose page",items:["1 - TV & Streaming","2 - What can you choose?","3 - Netflix & Viaplay","4 - HBO & Apple TV","5 - TV2 & SkyShowtime","6 - Podme & Storytell"]},
+      es:{title:"T-We & Streaming",sub:"Descripción general de las opciones de streaming del paquete T-We.",aria:"Elegir página",items:["1 - TV y streaming","2 - ¿Qué puedes elegir?","3 - Netflix y Viaplay","4 - HBO y Apple TV","5 - TV2 y SkyShowtime","6 - Podme y Storytell"]},
+      pl:{title:"T-We i streaming",sub:"Przegląd opcji streamingu w pakiecie T-We.",aria:"Wybierz stronę",items:["1 - TV i streaming","2 - Co możesz wybrać?","3 - Netflix i Viaplay","4 - HBO i Apple TV","5 - TV2 i SkyShowtime","6 - Podme i Storytell"]},
+      de:{title:"T-We & Streaming",sub:"Übersicht über die Streaming-Auswahl im T-We-Paket.",aria:"Seite auswählen",items:["1 - TV & Streaming","2 - Was kannst du wählen?","3 - Netflix & Viaplay","4 - HBO & Apple TV","5 - TV2 & SkyShowtime","6 - Podme & Storytell"]}
+    };
+    const tw=tweByLang[lang];
+    if(tw){
+      const l2=content.querySelector("#lesson-2");
+      const firstVideo=l2?.querySelector(".video");
+      if(l2 && firstVideo){
+        const opts=tw.items.map((label,i)=>`<button class="twe-page-option${i===0?" active":""}" type="button" data-page="${i+1}" role="option">${label}</button>`).join("");
+        const block=`<div class="twe-pdf"><div class="twe-pdf-card"><div class="twe-pdf-head"><div class="twe-pdf-title"><h3>${tw.title}<span class="twe-title-break"></span> – 3 valg</h3><p>${tw.sub}</p></div><div class="twe-page-select" id="twePageSelectWrap"><button class="twe-page-button" id="twePageButton" type="button" aria-haspopup="listbox" aria-expanded="false"><span>Side 1/6</span><span aria-hidden="true">⌄</span></button><div class="twe-page-menu" id="twePageMenu" role="listbox" aria-label="${tw.aria}">${opts}</div></div></div><div class="twe-pdf-pages" aria-label="${tw.title}"><img class="twe-pdf-page twe-page-active" data-page="1" src="page-1.jpg" alt="${tw.title} – side 1"><img class="twe-pdf-page" data-page="2" src="page-2.jpg" alt="${tw.title} – side 2" loading="lazy"><img class="twe-pdf-page" data-page="3" src="page-3.jpg" alt="${tw.title} – side 3" loading="lazy"><img class="twe-pdf-page" data-page="4" src="page-4.jpg" alt="${tw.title} – side 4" loading="lazy"><img class="twe-pdf-page" data-page="5" src="page-5.jpg" alt="${tw.title} – side 5" loading="lazy"><img class="twe-pdf-page" data-page="6" src="page-6.jpg" alt="${tw.title} – side 6" loading="lazy"></div></div></div>`;
+        firstVideo.insertAdjacentHTML("beforebegin",block);
+      }
+    }
+  }
+
   // T-We page picker: custom dropdown keeps the selected page while scrolling.
   // It starts on page 1 on a fresh page load and does not use the iPhone native wheel.
   const pageWrap=document.getElementById("twePageSelectWrap");
