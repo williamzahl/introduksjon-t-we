@@ -1144,6 +1144,58 @@ updateFooterUpdated();
 </style>
 
 </body>
+
+<style id="back-to-top-latest">
+#backToTop{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  width:34px;
+  height:34px;
+  border:1px solid rgba(0,0,0,.12);
+  border-radius:50%;
+  background:rgba(255,255,255,.94);
+  color:#102a43;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:18px;
+  line-height:1;
+  cursor:pointer;
+  box-shadow:0 4px 14px rgba(0,0,0,.12);
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(6px);
+  transition:opacity .2s ease, visibility .2s ease, transform .2s ease;
+  z-index:9999;
+  padding:0;
+}
+#backToTop.show{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+#backToTop:active{transform:translateY(1px);}
+@media(max-width:620px){
+  #backToTop{right:14px;bottom:14px;width:32px;height:32px;font-size:17px;}
+}
+</style>
+<script id="back-to-top-latest-script">
+(function(){
+  const btn=document.createElement('button');
+  btn.id='backToTop';
+  btn.type='button';
+  btn.setAttribute('aria-label','Til toppen');
+  btn.title='Til toppen';
+  btn.innerHTML='↑';
+  document.body.appendChild(btn);
+  function toggle(){btn.classList.toggle('show',window.scrollY>500);}
+  btn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+  window.addEventListener('scroll',toggle,{passive:true});
+  toggle();
+})();
+</script>
+
 </html>
 
 <style id="mobile-title-break-v18">
