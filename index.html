@@ -1463,3 +1463,59 @@ updateFooterUpdated();
   },true);
 })();
 </script>
+
+<style id="mobile-header-final-v19">
+@media(max-width:620px){
+  /* The large mobile header does not need the lesson counter; it remains in the sticky bar while scrolling. */
+  .top #count{display:none !important;}
+
+  /* Language and Menu use the same visual language: identical centering, height, typography and icon scale. */
+  .topright{
+    align-items:flex-end !important;
+    gap:12px !important;
+  }
+  .topright .lang,
+  .topright .mobile-menu-btn{
+    box-sizing:border-box !important;
+    height:58px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    border:2px solid rgba(255,255,255,.28) !important;
+    background:rgba(255,255,255,.07) !important;
+    border-radius:18px !important;
+    padding:0 16px !important;
+  }
+  .topright .lang{
+    width:150px !important;
+    min-width:150px !important;
+    max-width:none !important;
+    gap:10px !important;
+  }
+  .topright .mobile-menu-btn{
+    width:128px !important;
+    min-width:128px !important;
+    gap:10px !important;
+    font-size:18px !important;
+    font-weight:750 !important;
+  }
+  .topright .lang-button{
+    justify-content:center !important;
+    gap:8px !important;
+    font-size:18px !important;
+    font-weight:750 !important;
+  }
+  .topright .lang-globe{
+    font-size:25px !important;
+    line-height:1 !important;
+  }
+  .topright .lang-chevron{
+    font-size:20px !important;
+    line-height:1 !important;
+  }
+  .topright .mobile-menu-icon{
+    font-size:30px !important;
+    line-height:1 !important;
+  }
+}
+</style>
