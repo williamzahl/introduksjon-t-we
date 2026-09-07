@@ -1519,3 +1519,49 @@ updateFooterUpdated();
   }
 }
 </style>
+
+<style id="mobile-header-size-fix-v20">
+@media(max-width:620px){
+  /* Litt lavere toppmeny, uten å endre desktop-layouten. */
+  .top{
+    padding:14px 16px 16px !important;
+  }
+  .topright{
+    gap:8px !important;
+  }
+  .topright .lang,
+  .topright .mobile-menu-btn{
+    height:50px !important;
+    border-radius:16px !important;
+    border-width:2px !important;
+    padding:0 13px !important;
+  }
+  .topright .lang{
+    width:150px !important;
+    min-width:150px !important;
+    gap:7px !important;
+  }
+  .topright .mobile-menu-btn{
+    width:128px !important;
+    min-width:128px !important;
+    gap:8px !important;
+    font-size:16px !important;
+  }
+  .topright .lang-button{
+    gap:6px !important;
+    font-size:16px !important;
+  }
+  .topright .lang-globe{
+    font-size:20px !important;
+  }
+  .topright .lang-chevron{
+    font-size:17px !important;
+  }
+  .topright .mobile-menu-icon{
+    font-size:23px !important;
+  }
+  .progress{
+    margin-top:14px !important;
+  }
+}
+</style>
