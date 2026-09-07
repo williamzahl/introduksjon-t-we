@@ -852,9 +852,39 @@ const languageButton=document.getElementById("languageButton");
 const languageButtonText=document.getElementById("languageButtonText");
 const languageMenu=document.getElementById("languageMenu");
 
+
+function syncLanguageControlWidth(){
+  if(!window.matchMedia("(max-width: 620px)").matches) return;
+  const topRight=document.querySelector(".topright");
+  const langBox=document.getElementById("languagePicker");
+  const menuBtn=document.getElementById("mobileMenuBtn");
+  if(!topRight || !langBox || !menuBtn) return;
+
+  // Measure the natural width needed by the current language label,
+  // then give BOTH boxes that same width.
+  const button=document.getElementById("languageButton");
+  const label=document.getElementById("languageButtonText");
+  if(!button || !label) return;
+
+  const previous=topRight.style.getPropertyValue("--language-control-width");
+  topRight.style.setProperty("--language-control-width","max-content");
+
+  const needed=Math.ceil(
+    label.getBoundingClientRect().width +
+    15 +  // globe
+    4 +   // gap
+    13 +  // chevron
+    18    // horizontal breathing room
+  );
+
+  const width=Math.max(112, Math.min(needed, window.innerWidth-210));
+  topRight.style.setProperty("--language-control-width", width+"px");
+}
+
 function updateLanguagePicker(){
   const names={no:"Norsk",en:"English",de:"Deutsch",es:"Español",pl:"Polski"};
   if(languageButtonText) languageButtonText.textContent=names[lang]||"Norsk";
+  syncLanguageControlWidth();
   if(languageMenu){
     languageMenu.querySelectorAll(".lang-option").forEach(o=>{
       const active=o.dataset.lang===lang;
@@ -1737,3 +1767,95 @@ updateFooterUpdated();
 }
 </style>
 
+
+<style id="mobile-controls-v23">
+/* V23: both controls are equally sized, slightly smaller, and expand together
+   when a translated language name is longer. */
+@media(max-width:620px){
+  .topright{
+    align-items:flex-end !important;
+  }
+
+  .topright .lang,
+  .topright .mobile-menu-btn{
+    height:38px !important;
+    min-height:38px !important;
+    width:max-content !important;
+    min-width:112px !important;
+    max-width:calc(100vw - 210px) !important;
+    box-sizing:border-box !important;
+    padding:0 9px !important;
+    border-radius:12px !important;
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+  }
+
+  /* Language width follows its translated label. */
+  .topright .lang{
+    flex:0 1 auto !important;
+  }
+
+  .topright .lang-button{
+    width:auto !important;
+    min-width:0 !important;
+    flex:0 1 auto !important;
+    padding:0 !important;
+    font-size:13px !important;
+    gap:4px !important;
+  }
+
+  .topright .lang-globe{
+    font-size:15px !important;
+    flex:0 0 auto !important;
+  }
+
+  .topright .lang-chevron{
+    font-size:13px !important;
+    flex:0 0 auto !important;
+  }
+
+  /* Menu has the same width as the language box in the current language. */
+  .topright .mobile-menu-btn{
+    flex:0 0 auto !important;
+    font-size:13px !important;
+    gap:6px !important;
+  }
+
+  .topright .mobile-menu-icon{
+    width:15px !important;
+    height:11px !important;
+    flex:0 0 15px !important;
+  }
+
+  .topright .mobile-menu-icon::before{
+    width:15px !important;
+    height:2.1px !important;
+    box-shadow:0 4.4px 0 currentColor,0 8.8px 0 currentColor !important;
+  }
+
+  /* Make both boxes match the wider of the two labels. */
+  .topright{
+    --control-width:112px;
+  }
+
+  .topright .lang,
+  .topright .mobile-menu-btn{
+    width:var(--control-width) !important;
+  }
+
+  /* Longer translated language labels expand the shared width. */
+  .topright .lang:has(.lang-button[data-long-language="true"]){
+    width:var(--control-width) !important;
+  }
+}
+
+/* Shared width is set by JS after each language change. */
+@media(max-width:620px){
+  .topright .lang,
+  .topright .mobile-menu-btn{
+    width:var(--language-control-width,112px) !important;
+  }
+}
+</style>
+<script>window.addEventListener("resize",syncLanguageControlWidth);</script>
