@@ -1641,3 +1641,99 @@ updateFooterUpdated();
   }
 }
 </style>
+
+
+<style id="mobile-controls-and-language-fit-v22">
+/* V22: smaller mobile header controls + language-safe T-We page selector. */
+@media(max-width:620px){
+  /* Make the two top controls compact without changing their centered layout. */
+  .topright .lang,
+  .topright .mobile-menu-btn{
+    height:40px !important;
+    border-radius:13px !important;
+    border-width:2px !important;
+    padding:0 9px !important;
+    box-sizing:border-box !important;
+  }
+
+  .topright .lang{
+    width:124px !important;
+    min-width:124px !important;
+    gap:5px !important;
+  }
+
+  .topright .mobile-menu-btn{
+    width:106px !important;
+    min-width:106px !important;
+    gap:6px !important;
+    font-size:14px !important;
+    line-height:1 !important;
+  }
+
+  .topright .lang-button{
+    height:100% !important;
+    justify-content:center !important;
+    align-items:center !important;
+    gap:4px !important;
+    font-size:14px !important;
+    line-height:1 !important;
+  }
+
+  .topright .lang-globe{
+    font-size:16px !important;
+    line-height:1 !important;
+  }
+
+  .topright .lang-chevron{
+    font-size:14px !important;
+    line-height:1 !important;
+  }
+
+  .topright .mobile-menu-icon,
+  .topright .mobile-menu-icon::before{
+    width:16px !important;
+  }
+
+  .topright .mobile-menu-icon{
+    height:12px !important;
+    flex-basis:16px !important;
+  }
+
+  .topright .mobile-menu-icon::before{
+    height:2.25px !important;
+    box-shadow:0 4.8px 0 currentColor,0 9.6px 0 currentColor !important;
+  }
+
+  /* The T-We page selector must grow for translated labels instead of clipping them. */
+  .twe-page-select{
+    width:max-content !important;
+    min-width:78px !important;
+    max-width:calc(100vw - 32px) !important;
+  }
+
+  .twe-page-button{
+    width:max-content !important;
+    min-width:78px !important;
+    max-width:calc(100vw - 32px) !important;
+    padding:7px 10px !important;
+    white-space:nowrap !important;
+  }
+
+  .twe-page-menu{
+    width:max-content !important;
+    min-width:145px !important;
+    max-width:calc(100vw - 32px) !important;
+    padding:5px !important;
+  }
+
+  .twe-page-option{
+    width:max-content !important;
+    min-width:100% !important;
+    max-width:100% !important;
+    box-sizing:border-box !important;
+    padding:9px 10px !important;
+    white-space:nowrap !important;
+  }
+}
+</style>
+
