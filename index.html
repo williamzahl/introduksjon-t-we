@@ -1565,3 +1565,79 @@ updateFooterUpdated();
   }
 }
 </style>
+
+<style id="mobile-header-final-v21">
+@media(max-width:620px){
+  /* Final compact controls: smaller boxes, identical internal alignment, and no duplicate menu icon. */
+  .topright .lang,
+  .topright .mobile-menu-btn{
+    height:44px !important;
+    border-radius:14px !important;
+    border-width:2px !important;
+    padding:0 10px !important;
+    box-sizing:border-box !important;
+    align-items:center !important;
+    justify-content:center !important;
+  }
+
+  .topright .lang{
+    width:136px !important;
+    min-width:136px !important;
+    gap:6px !important;
+  }
+
+  .topright .mobile-menu-btn{
+    width:116px !important;
+    min-width:116px !important;
+    gap:7px !important;
+    font-size:15px !important;
+    line-height:1 !important;
+  }
+
+  .topright .lang-button{
+    height:100% !important;
+    justify-content:center !important;
+    align-items:center !important;
+    gap:5px !important;
+    font-size:15px !important;
+    line-height:1 !important;
+  }
+
+  .topright .lang-globe{
+    font-size:18px !important;
+    line-height:1 !important;
+  }
+
+  .topright .lang-chevron{
+    font-size:15px !important;
+    line-height:1 !important;
+  }
+
+  /* Hide the literal ☰ character and use only the three CSS bars. */
+  .topright .mobile-menu-icon{
+    font-size:0 !important;
+    line-height:0 !important;
+    width:18px !important;
+    height:13px !important;
+    flex:0 0 18px !important;
+    position:relative !important;
+    display:inline-block !important;
+  }
+  .topright .mobile-menu-icon::before{
+    content:"" !important;
+    position:absolute !important;
+    left:0 !important;
+    top:0 !important;
+    width:18px !important;
+    height:2.5px !important;
+    background:currentColor !important;
+    border-radius:3px !important;
+    box-shadow:0 5px 0 currentColor,0 10px 0 currentColor !important;
+  }
+
+  /* Keep the sticky/swipe-down mini menu unchanged except for its single icon. */
+  .mobile-sticky .sticky-menu-icon{
+    font-size:0 !important;
+  }
+}
+</style>
