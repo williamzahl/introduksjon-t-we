@@ -57,6 +57,12 @@ button{font:inherit}
 .hero-visual{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);border-radius:22px;padding:9px;box-shadow:0 12px 30px rgba(0,45,85,.12);max-width:470px;margin-left:auto;width:100%}
 .hero-visual img{display:block;width:100%;height:auto;border-radius:16px;background:#fff}
 
+/* Telenor branding accents */
+.hero-brand-logo{width:92px;height:auto;display:block;object-fit:contain;filter:brightness(0) invert(1);margin:0 0 15px 0;opacity:.98}
+.final-brand-logo{width:74px;height:auto;display:block;object-fit:contain;margin:0 0 14px 0}
+.risk-brand-logo{width:64px;height:auto;display:block;object-fit:contain;filter:brightness(0) invert(1);margin:0 0 13px 0;opacity:.95}
+@media(max-width:560px){.hero-brand-logo{width:78px;margin-bottom:12px}.final-brand-logo{width:64px;margin-bottom:11px}.risk-brand-logo{width:56px;margin-bottom:11px}}
+
 .hero-nav{grid-column:1 / -1;display:flex;justify-content:center;align-items:center;gap:28px;margin-top:2px;padding-top:18px;border-top:1px solid rgba(255,255,255,.22);font-size:14px;font-weight:800}.hero-nav a{text-decoration:none;color:#fff;opacity:.96}.hero-nav a:hover{opacity:.72}
 
 /* CONTENT */
@@ -75,7 +81,7 @@ button{font:inherit}
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:0 0 25px}.mini{background:#fff;border:1px solid var(--line);border-radius:24px;padding:28px 30px;scroll-margin-top:90px}.mini h3{margin:0;color:var(--dark);font-size:23px}.mini p{margin:12px 0 0;font-size:16.5px;line-height:1.7}.mini .mini-icon{font-size:30px;margin-bottom:13px}
 .final{background:linear-gradient(135deg,#eaf8fd,#fff);border:1px solid var(--line);border-radius:28px;padding:35px;display:grid;grid-template-columns:1fr 320px;gap:35px;align-items:center;scroll-margin-top:90px}.final h3{font-size:32px;color:var(--dark);margin:0 0 11px}.final p{font-size:17px;line-height:1.7;margin:0}.guide{display:block;text-decoration:none;background:#fff;border:1px solid #cfe4ef;border-radius:20px;padding:24px;box-shadow:0 8px 20px rgba(10,65,95,.07)}.guide .guide-title{font-size:21px;font-weight:900;color:var(--dark)}.guide .guide-text{font-size:15px;line-height:1.5;color:var(--muted);margin-top:7px}.guide .guide-btn{display:inline-block;margin-top:16px;background:var(--blue);color:#fff;padding:11px 15px;border-radius:12px;font-weight:850;font-size:14px}
 
-.footer{background:#101010;color:#fff;padding:30px 22px}.footer-inner{max-width:1180px;margin:auto;display:flex;justify-content:space-between;gap:20px;align-items:center}.footer small{color:#bfc6cc}.backtop{width:42px;height:42px;border-radius:13px;border:1px solid #394149;background:#181818;color:#fff;display:none;align-items:center;justify-content:center;cursor:pointer;font-size:20px}.backtop.show{display:flex}
+.footer{background:#101010;color:#fff;padding:30px 22px}.footer-inner{max-width:1180px;margin:auto;display:flex;justify-content:space-between;gap:20px;align-items:center}.footer small{color:#bfc6cc}
 
 @media(max-width:850px){
  .nav{display:none}.top-guide-progress{display:none}.topbar-inner{padding:10px 15px}.brand{font-size:18px}.lang-btn{min-width:124px;height:42px}
@@ -377,6 +383,560 @@ button{font:inherit}
   .hero-inner{min-height:160px;padding:24px 22px 34px}
   .intro .hero-nav{position:relative;z-index:5;margin-top:18px;margin-bottom:22px}
 }
+
+
+/* SIDEBAR TIPS + CONTACT */
+.side-divider{height:1px;background:var(--line);margin:16px 8px 14px}
+.tips-title{margin-bottom:8px}
+.side-tip-links .side-link{padding:8px 8px}
+.side-special-link b{font-size:14px;width:20px}
+.side-contact{margin:20px 8px 0;padding:20px 12px 19px;border-top:1px solid var(--line);display:flex;align-items:center;gap:13px;color:var(--dark);min-height:70px}
+.side-contact-icon{width:34px;height:34px;flex:0 0 34px;border-radius:10px;background:var(--soft);color:var(--blue);display:flex;align-items:center;justify-content:center}
+.side-contact-icon svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.side-contact-label{font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:1px;color:#71899a;margin-bottom:2px}
+.side-contact a{display:block;color:var(--blue);text-decoration:none;font-size:13px;font-weight:850;line-height:1.3}
+.side-contact strong{display:block;font-size:12px;font-weight:500;color:#71899a;line-height:1.35;margin-top:6px}
+.mobile-contact{display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:#f6fbfd;margin:8px 4px 3px}
+.mobile-contact-icon{width:34px;height:34px;flex:0 0 34px;border-radius:10px;background:var(--soft);color:var(--blue);display:flex;align-items:center;justify-content:center}
+.mobile-contact-icon svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.mobile-contact-label{font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:1px;color:#71899a}
+.mobile-contact a{display:block;color:var(--blue);text-decoration:none;font-weight:850;font-size:12px}
+.mobile-contact strong{display:block;color:#71899a;font-size:11px;font-weight:500;margin-top:5px;line-height:1.35}
+
+/* STEP NAVIGATION + SIDE SCROLL ARROWS */
+.step-nav{display:flex;justify-content:space-between;align-items:center;gap:14px;margin:0 0 25px;padding:0 6px}
+.step-nav-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:132px;height:42px;padding:0 17px;border:1px solid #cfe4ef;border-radius:12px;background:#fff;color:var(--dark);text-decoration:none;font-size:13px;font-weight:850;box-shadow:0 5px 14px rgba(14,64,96,.06);transition:transform .18s ease,background .18s ease,border-color .18s ease,color .18s ease}
+.step-nav-btn:hover{transform:translateY(-1px);background:var(--soft);border-color:#b9dff0;color:var(--blue)}
+.step-nav-btn.next{margin-left:auto;background:var(--blue);border-color:var(--blue);color:#fff}
+.step-nav-btn.next:hover{background:#076fb7;border-color:#076fb7;color:#fff}
+.side-scroll-controls{position:fixed;inset:0;z-index:1050;pointer-events:none;padding:0}
+.side-scroll-btn{pointer-events:auto;width:46px;height:46px;border:1px solid #cfe4ef;border-radius:50%;background:rgba(255,255,255,.96);color:var(--dark);font-size:34px;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 9px 24px rgba(14,64,96,.14);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s ease,visibility .2s ease,transform .2s ease,background .2s ease}
+.side-scroll-btn.show{opacity:1;visibility:visible;transform:translateY(0)}
+.side-scroll-btn:hover{background:var(--soft);color:var(--blue)}
+.side-scroll-btn.down{position:fixed;top:175px;left:max(0px,calc(50% - 735px))}.side-scroll-btn.up{position:fixed;bottom:22px;right:max(0px,calc(50% - 735px))}
+.top-guide-progress{display:none}
+@media(max-width:850px){
+ .step-nav{margin:0 0 19px;padding:0 2px;gap:9px}
+ .step-nav-btn{min-width:0;flex:1;height:42px;padding:0 10px;font-size:12px;border-radius:11px}
+ .side-scroll-controls{inset:0;width:auto;padding:0}
+ .side-scroll-btn.down{top:155px;left:4px}.side-scroll-btn.up{bottom:16px;right:4px}
+ .side-scroll-btn{width:40px;height:40px;border-radius:50%;font-size:25px}
+}
+@media(max-width:560px){
+ .step-nav-btn{height:40px;font-size:11px}
+ .side-scroll-btn{width:36px;height:36px;border-radius:50%;font-size:23px}
+ .side-scroll-btn.down{top:140px;left:2px}.side-scroll-btn.up{bottom:10px;right:2px}
+}
+
+.bottom-contact{margin:34px 0 8px;padding:22px 24px;border:1px solid #cfe4ef;border-radius:16px;background:#fff;box-shadow:0 8px 22px rgba(14,64,96,.08);display:flex;align-items:center;gap:16px}
+.bottom-contact-icon{width:42px;height:42px;flex:0 0 42px;border-radius:10px;background:var(--soft);color:var(--blue);display:flex;align-items:center;justify-content:center}
+.bottom-contact-icon svg{width:23px;height:23px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;display:block}
+.bottom-contact-info{min-width:0;flex:1}
+.bottom-contact-title{font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:1px;color:#71899a;margin-bottom:3px}
+.bottom-contact-name{font-size:13px;font-weight:500;color:#71899a;margin-top:6px;margin-bottom:7px;line-height:1.35}
+.bottom-contact-phone{display:block;color:var(--blue);text-decoration:none;font-size:14px;font-weight:800;line-height:1.45}
+.bottom-contact-phone:hover{text-decoration:underline}
+.bottom-contact-mail{width:40px;height:40px;flex:0 0 40px;border-radius:50%;background:var(--soft);color:var(--blue);display:flex;align-items:center;justify-content:center;text-decoration:none;margin-left:auto}
+.bottom-contact-mail svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;display:block}
+.bottom-contact-mail:hover{background:#e5f4fb}
+.bottom-contact-note{margin:7px 0 0 2px;color:#8a99a3;font-size:11px;line-height:1.5}
+@media(max-width:560px){.bottom-contact{padding:18px 16px;gap:12px}.bottom-contact-icon{width:38px;height:38px;flex-basis:38px}.bottom-contact-name{font-size:12.5px}.bottom-contact-phone{font-size:13px}.bottom-contact-mail{width:36px;height:36px;flex-basis:36px}.bottom-contact-mail svg{width:18px;height:18px}.bottom-contact-note{font-size:10.5px}}
+
+/* USER POLISH — progress, language centering, phone icons and scroll arrow visibility */
+.top-guide-progress{display:none;max-width:430px;margin:0 auto;flex:0 1 430px}
+.topbar.scrolled .top-guide-progress{display:block}
+.top-guide-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:4px;font-size:11px;font-weight:900;color:var(--dark)}
+.top-guide-row{display:block}
+.top-guide-line{height:5px;width:100%;background:#d9ebf4;border-radius:999px;overflow:hidden}
+.top-guide-fill{height:100%;width:0;background:var(--blue);border-radius:999px;transition:width .2s ease}
+.lang-btn{position:relative;overflow:visible}
+.lang-btn>span:first-child{position:absolute;left:50%;top:50%;width:max-content;margin:0;transform:translate(-50%,-52%);display:flex;align-items:center;justify-content:center;gap:6px;white-space:nowrap}
+.lang-btn .chev{position:absolute;right:10px;top:50%;transform:translateY(-50%)}
+.side-contact-icon,.mobile-contact-icon,.bottom-contact-icon{overflow:hidden}
+.side-contact-icon svg,.mobile-contact-icon svg,.bottom-contact-icon svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;display:block}
+.side-contact-icon,.mobile-contact-icon{border-radius:11px}
+.bottom-contact-icon{border-radius:12px}
+.side-scroll-btn.down{top:175px}
+.side-scroll-btn.up{bottom:22px}
+@media(max-width:850px){
+  .topbar.scrolled .top-guide-progress{display:none}
+  .lang-btn>span:first-child{transform:translate(-50%,-52%)}
+  .side-scroll-btn.down{top:155px}
+}
+@media(max-width:560px){
+  .side-scroll-btn.down{top:140px}
+}
+
+
+
+/* PHONE ICON RESET — rebuilt cleanly to avoid clipping/offsets */
+.side-contact-icon,.mobile-contact-icon,.bottom-contact-icon{
+  overflow:visible;
+  box-sizing:border-box;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  line-height:0;
+}
+.side-contact-icon svg,.mobile-contact-icon svg,.bottom-contact-icon svg{
+  display:block;
+  width:18px;
+  height:18px;
+  flex:0 0 18px;
+  margin:0;
+  padding:0;
+  transform:none;
+  overflow:visible;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.8;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.bottom-contact-icon svg{width:19px;height:19px;flex-basis:19px}
+@media(max-width:560px){
+  .side-contact-icon svg,.mobile-contact-icon svg{width:18px;height:18px;flex-basis:18px}
+  .bottom-contact-icon svg{width:18px;height:18px;flex-basis:18px}
+}
+
+/* ACTIVE SIDEBAR STATE + CONTACT ICON POLISH */
+.side-link.active{background:var(--soft);color:var(--blue);border:1px solid var(--blue);box-sizing:border-box}
+.side-link.active span{color:var(--dark)}
+.side-link{border:1px solid transparent}
+.side-contact-icon svg,.mobile-contact-icon svg,.bottom-contact-icon svg{width:22px;height:22px;flex-basis:22px;stroke-width:2.25}
+.bottom-contact-icon svg{width:23px;height:23px;flex-basis:23px}
+@media(max-width:560px){.side-contact-icon svg,.mobile-contact-icon svg{width:21px;height:21px;flex-basis:21px}.bottom-contact-icon svg{width:22px;height:22px;flex-basis:22px}}
+
+/* LATEST POLISH — top progress, language alignment, phone icon and arrow position */
+.top-guide-top{justify-content:center}
+.top-guide-top #topGuideLesson{display:none}
+.top-guide-progress{max-width:300px}
+.top-guide-top #topGuidePercent{font-size:11px;font-weight:900}
+.side-contact-icon,.mobile-contact-icon,.bottom-contact-icon{background:var(--soft);color:var(--blue);overflow:hidden}
+.side-contact-icon svg,.mobile-contact-icon svg,.bottom-contact-icon svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round;display:block;overflow:visible;flex:0 0 19px}
+.side-contact-icon{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;line-height:0}
+.mobile-contact-icon{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;line-height:0}
+.bottom-contact-icon{width:40px;height:40px;flex:0 0 40px;border-radius:11px;display:flex;align-items:center;justify-content:center;line-height:0}
+.lang-btn>span:first-child{left:43%;transform:translate(-50%,-52%)}
+.side-scroll-btn.down{top:96px}
+@media(max-width:850px){
+  .top-guide-top{justify-content:center}
+  .lang-btn>span:first-child{left:43%;transform:translate(-50%,-52%)}
+  .side-scroll-btn.down{top:92px}
+}
+@media(max-width:560px){
+  .lang-btn>span:first-child{left:42%;transform:translate(-50%,-52%)}
+  .side-scroll-btn.down{top:88px}
+}
+
+/* CONTACT BOX — split into phone/email halves */
+.bottom-contact{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;column-gap:0;align-items:center;padding:22px 24px 16px}
+.bottom-contact-half{display:flex;align-items:center;gap:16px;min-width:0;min-height:58px}
+.bottom-contact-phone-half{padding-right:24px}
+.bottom-contact-mail-half{padding-left:24px;border-left:1px solid var(--line)}
+.bottom-contact-mail{margin:0;width:40px;height:40px;flex:0 0 40px;border-radius:50%;background:var(--soft);color:var(--blue);display:flex;align-items:center;justify-content:center}
+.bottom-contact-email{display:block;color:var(--blue);text-decoration:none;font-size:13px;font-weight:750;line-height:1.45;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bottom-contact-email:hover{text-decoration:underline}
+.bottom-contact-note{grid-column:1 / -1;margin:13px 0 0;padding-top:10px;border-top:1px solid var(--line);color:#8a99a3;font-size:10.5px;line-height:1.5}
+.side-contact-icon svg,.mobile-contact-icon svg,.bottom-contact-icon svg{stroke-width:2.2}
+.bottom-contact-mail svg{width:20px;height:20px;stroke-width:2.2}
+@media(max-width:560px){
+  .bottom-contact{grid-template-columns:1fr;row-gap:14px;padding:18px 16px 14px}
+  .bottom-contact-half{min-height:48px}
+  .bottom-contact-phone-half{padding-right:0}
+  .bottom-contact-mail-half{padding-left:0;padding-top:14px;border-left:0;border-top:1px solid var(--line)}
+  .bottom-contact-note{margin-top:0}
+  .bottom-contact-email{font-size:12px}
+}
+
+
+/* CONTACT SPACING POLISH */
+.side-contact-label{margin-bottom:6px}
+.side-contact a[href^="tel:"]{margin-bottom:0}
+.side-contact strong{margin-top:6px}
+.mobile-contact-label{margin-bottom:5px}
+.mobile-contact a[href^="tel:"]{margin-bottom:4px}
+
+.footer{background:var(--blue);color:#fff;padding:30px 22px}.footer-inner{max-width:1180px;margin:auto;display:flex;justify-content:space-between;gap:24px;align-items:center}.footer-logo{width:74px;height:50px;object-fit:contain;filter:brightness(0) invert(1);display:block}.footer-copy{text-align:center;flex:1}.footer-copy strong{font-size:16px}.footer-copy small{color:rgba(255,255,255,.86)}
+@media(max-width:560px){.footer{padding:24px 16px}.footer-inner{gap:12px}.footer-logo{width:54px;height:42px}.footer-copy strong{font-size:14px}.footer-copy small{font-size:10px}}
+
+/* FINAL LANGUAGE + FOOTER POLISH */
+.lang-menu .lang-option{
+  justify-content:center !important;
+  text-align:center !important;
+}
+.lang-menu .lang-option span{
+  text-align:center !important;
+}
+.footer{
+  background:linear-gradient(135deg,#0780cf 0%,#0aaee7 100%) !important;
+}
+</style>
+
+<style id="phone-icon-final-reset">
+/* Definitive phone-icon reset: one geometry, no clipping, no inherited transforms. */
+.side-contact-icon, .mobile-contact-icon, .bottom-contact-icon {
+  box-sizing: border-box !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: 0 !important;
+  overflow: visible !important;
+  padding: 0 !important;
+  transform: none !important;
+}
+.side-contact-icon .phone-svg, .mobile-contact-icon .phone-svg, .bottom-contact-icon .phone-svg {
+  display: block !important;
+  width: 19px !important;
+  height: 19px !important;
+  min-width: 19px !important;
+  min-height: 19px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  flex: 0 0 19px !important;
+  transform: none !important;
+  overflow: visible !important;
+  fill: none !important;
+  stroke: currentColor !important;
+  stroke-width: 1.75 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+}
+@media(max-width:560px){
+  .side-contact-icon .phone-svg, .mobile-contact-icon .phone-svg {
+    width: 18px !important; height: 18px !important; min-width: 18px !important; min-height: 18px !important; flex-basis: 18px !important;
+  }
+}
+</style>
+
+
+<style id="active-menu-fix">
+/* Active sidebar state: highlight without changing layout dimensions. */
+.side-link { border: 1px solid transparent; box-sizing: border-box; }
+.side-link.active {
+  background: var(--soft);
+  color: var(--blue);
+  border-color: var(--blue);
+  box-shadow: inset 0 0 0 0 transparent;
+}
+.side-link.active span { color: var(--dark); }
+.side-special-link.active { border-color: var(--blue); }
+
+/* FINAL CONTACT + FULL-PAGE PROGRESS FIX */
+.side-contact-icon,.mobile-contact-icon{
+  background:var(--blue) !important;
+  color:#fff !important;
+  border-radius:50% !important;
+}
+.bottom-contact-icon{
+  background:var(--soft) !important;
+  color:var(--blue) !important;
+  border-radius:50% !important;
+}
+.side-contact-icon svg,.mobile-contact-icon svg,.bottom-contact-icon svg{
+  stroke:currentColor !important;
+  stroke-width:2.4 !important;
+}
+.bottom-contact-half{align-items:flex-start !important;}
+.bottom-contact-info{padding-top:1px;}
+.bottom-contact-mail-half .bottom-contact-info{padding-top:1px;}
+.footer-disclaimer{margin-top:10px;color:#fff;font-size:10px;line-height:1.45;text-align:right;opacity:.92;}
+@media(max-width:560px){.footer-disclaimer{font-size:9.5px;margin-top:8px;}}
+.footer-disclaimer{margin:9px auto 0;max-width:1180px;padding:0 22px 2px;text-align:right;color:#fff;font-size:10px;line-height:1.45;opacity:.92;}
+@media(max-width:560px){.footer-disclaimer{font-size:9.5px;padding:0 16px 2px;margin-top:8px;text-align:center;}}
+</style>
+
+<style id="final-contact-disclaimer-fix">
+/* Final alignment: phone circle matches the mail circle exactly. */
+.bottom-contact-icon{
+  width:40px !important;
+  height:40px !important;
+  min-width:40px !important;
+  flex:0 0 40px !important;
+  border-radius:50% !important;
+  background:var(--soft) !important;
+  color:var(--blue) !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  padding:0 !important;
+  margin:0 !important;
+  line-height:0 !important;
+  box-sizing:border-box !important;
+}
+.bottom-contact-icon .phone-svg{
+  width:20px !important;
+  height:20px !important;
+  min-width:20px !important;
+  min-height:20px !important;
+  flex:0 0 20px !important;
+  margin:0 !important;
+  padding:0 !important;
+  transform:none !important;
+  position:static !important;
+  display:block !important;
+  stroke:currentColor !important;
+  stroke-width:2.2 !important;
+  stroke-linecap:round !important;
+  stroke-linejoin:round !important;
+}
+.footer-disclaimer{
+  text-align:center !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+@media(max-width:560px){
+  .bottom-contact-icon{width:36px !important;height:36px !important;min-width:36px !important;flex-basis:36px !important;}
+  .bottom-contact-icon .phone-svg{width:18px !important;height:18px !important;min-width:18px !important;min-height:18px !important;flex-basis:18px !important;}
+}
+</style>
+
+<style id="final-contact-icon-centered">
+/* Clean final contact-icon reset: both phone and mail are geometrically centered. */
+.bottom-contact-icon, .bottom-contact-mail, .side-contact-icon, .mobile-contact-icon {
+  box-sizing:border-box !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  place-items:center !important;
+  padding:0 !important;
+  margin:0 !important;
+  line-height:0 !important;
+  transform:none !important;
+}
+.bottom-contact-icon .phone-svg, .side-contact-icon .phone-svg, .mobile-contact-icon .phone-svg, .bottom-contact-mail svg {
+  display:block !important;
+  position:static !important;
+  margin:0 !important;
+  padding:0 !important;
+  transform:none !important;
+  flex:0 0 auto !important;
+  overflow:visible !important;
+  fill:none !important;
+  stroke:currentColor !important;
+  stroke-linecap:round !important;
+  stroke-linejoin:round !important;
+}
+.bottom-contact-icon .phone-svg { width:20px !important; height:20px !important; }
+.side-contact-icon .phone-svg, .mobile-contact-icon .phone-svg { width:20px !important; height:20px !important; }
+.bottom-contact-mail svg { width:20px !important; height:20px !important; }
+@media(max-width:560px){
+  .side-contact-icon .phone-svg, .mobile-contact-icon .phone-svg { width:19px !important; height:19px !important; }
+  .bottom-contact-icon .phone-svg, .bottom-contact-mail svg { width:19px !important; height:19px !important; }
+}
+.footer-disclaimer { text-align:center !important; margin-left:auto !important; margin-right:auto !important; }
+</style>
+
+<style id="final-disclaimer-and-icon-centering">
+/* Final visual alignment: disclaimer is centered across the full footer width. */
+.footer-disclaimer{
+  display:block !important;
+  width:100% !important;
+  max-width:none !important;
+  box-sizing:border-box !important;
+  margin:9px 0 0 !important;
+  padding:0 22px 2px !important;
+  text-align:center !important;
+}
+/* Keep every phone glyph optically centered inside its circle. */
+.bottom-contact-icon .phone-svg,
+.side-contact-icon .phone-svg,
+.mobile-contact-icon .phone-svg{
+  position:relative !important;
+  left:0 !important;
+  top:0 !important;
+  transform:translate(0,0) !important;
+  transform-origin:center center !important;
+  display:block !important;
+}
+@media(max-width:560px){
+  .footer-disclaimer{padding:0 16px 2px !important;text-align:center !important;}
+}
+</style>
+<style id="absolute-footer-disclaimer-centering">
+/* Absolute final footer disclaimer alignment */
+.footer{
+  width:100% !important;
+  box-sizing:border-box !important;
+}
+.footer-disclaimer{
+  display:block !important;
+  width:100% !important;
+  max-width:none !important;
+  box-sizing:border-box !important;
+  margin:12px 0 0 !important;
+  padding:0 22px 2px !important;
+  text-align:center !important;
+  text-align-last:center !important;
+  color:#fff !important;
+}
+@media(max-width:560px){
+  .footer-disclaimer{
+    width:100% !important;
+    padding:0 16px 2px !important;
+    text-align:center !important;
+    text-align-last:center !important;
+  }
+}
+</style>
+
+<style id="footer-copy-centered-final">
+/* Footer: disclaimer is centered on the exact same axis as the title/date above it. */
+.footer-inner{
+  position:relative !important;
+  justify-content:center !important;
+  align-items:center !important;
+}
+.footer-logo{
+  position:absolute !important;
+  left:0 !important;
+  top:50% !important;
+  transform:translateY(-50%) !important;
+}
+.footer-center{
+  width:max-content !important;
+  max-width:calc(100% - 160px) !important;
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:center !important;
+  text-align:center !important;
+}
+.footer-copy{
+  flex:none !important;
+  width:100% !important;
+  text-align:center !important;
+}
+.footer-disclaimer{
+  width:100% !important;
+  max-width:none !important;
+  margin:10px 0 0 !important;
+  padding:0 !important;
+  text-align:center !important;
+  text-align-last:center !important;
+}
+@media(max-width:560px){
+  .footer-inner{min-height:92px !important;}
+  .footer-logo{left:0 !important;}
+  .footer-center{max-width:calc(100% - 72px) !important;}
+  .footer-disclaimer{margin-top:8px !important;font-size:9.5px !important;}
+}
+</style>
+<style id="latest-contact-polish">
+/* Final optical polish for contact phone icon and number. */
+.bottom-contact-icon .phone-svg,
+.side-contact-icon .phone-svg,
+.mobile-contact-icon .phone-svg{
+  transform:translateX(-1.5px) translateY(1.2px) !important;
+  transform-origin:center center !important;
+}
+.bottom-contact-phone{
+  font-weight:600 !important;
+}
+</style>
+
+<style id="final-visual-polish-20260908">
+/* Final polish: one clean centered phone glyph everywhere. */
+.side-contact-icon,
+.mobile-contact-icon,
+.bottom-contact-icon{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  place-items:center !important;
+  padding:0 !important;
+  margin:0 !important;
+  line-height:0 !important;
+  transform:none !important;
+  overflow:visible !important;
+  box-sizing:border-box !important;
+}
+.side-contact-icon .phone-svg,
+.mobile-contact-icon .phone-svg,
+.bottom-contact-icon .phone-svg{
+  position:static !important;
+  left:auto !important;
+  top:auto !important;
+  margin:0 !important;
+  padding:0 !important;
+  transform:none !important;
+  display:block !important;
+  width:20px !important;
+  height:20px !important;
+  min-width:20px !important;
+  min-height:20px !important;
+  flex:0 0 20px !important;
+  fill:none !important;
+  stroke:currentColor !important;
+  stroke-width:2.05 !important;
+  stroke-linecap:round !important;
+  stroke-linejoin:round !important;
+}
+
+/* Clean, light-grey scroll arrows. */
+.side-scroll-btn{
+  color:#8c9aa4 !important;
+  font-family:Arial,Helvetica,sans-serif !important;
+  font-size:27px !important;
+  font-weight:400 !important;
+  line-height:1 !important;
+  text-shadow:none !important;
+}
+.side-scroll-btn:hover{
+  color:#71808a !important;
+}
+
+/* When both tip links are selected, use one thin shared border in the middle. */
+.side-special-link.active + .side-special-link.active{
+  border-top-color:transparent !important;
+}
+
+@media(max-width:560px){
+  .side-contact-icon .phone-svg,
+  .mobile-contact-icon .phone-svg,
+  .bottom-contact-icon .phone-svg{
+    width:19px !important;
+    height:19px !important;
+    min-width:19px !important;
+    min-height:19px !important;
+    flex-basis:19px !important;
+  }
+  .side-scroll-btn{font-size:24px !important;}
+}
+</style>
+
+<style id="contact-font-and-tip-border-fix">
+/* Contact typography: phone and email use the same weight and visual size. */
+.side-contact a[href^="tel:"]{
+  font-size:13px !important;
+  font-weight:600 !important;
+  line-height:1.45 !important;
+}
+.bottom-contact-phone,
+.bottom-contact-email{
+  font-size:13px !important;
+  font-weight:600 !important;
+  line-height:1.45 !important;
+}
+/* Both tip links form one continuous selected group with one shared middle line. */
+.side-special-link.active + .side-special-link.active{
+  border-top-color:transparent !important;
+  border-top-left-radius:0 !important;
+  border-top-right-radius:0 !important;
+}
+.side-special-link.active:has(+ .side-special-link.active){
+  border-bottom-left-radius:0 !important;
+  border-bottom-right-radius:0 !important;
+}
+.mobile-special-link.active + .mobile-special-link.active{
+  border-top-color:transparent !important;
+  border-top-left-radius:0 !important;
+  border-top-right-radius:0 !important;
+}
+.mobile-special-link.active:has(+ .mobile-special-link.active){
+  border-bottom-left-radius:0 !important;
+  border-bottom-right-radius:0 !important;
+}
 </style>
 </head>
 <body>
@@ -384,9 +944,9 @@ button{font:inherit}
 <header class="topbar">
   <div class="topbar-inner">
     <a class="brand" href="#top">Fiber <span>&amp; T-We</span></a>
-    <div class="top-guide-progress" aria-label="T-We fiber guiden">
-      <div class="top-guide-title" data-i18n="topGuideTitle">T-We fiber guiden</div>
-      <div class="top-guide-row"><div class="top-guide-line"><div class="top-guide-fill" id="topGuideFill"></div></div><span id="topGuidePercent">0%</span></div>
+    <div class="top-guide-progress" aria-label="Fremdrift">
+      <div class="top-guide-top"><span id="topGuideLesson" aria-hidden="true">Steg 1 av 8</span><span id="topGuidePercent">12,5%</span></div>
+      <div class="top-guide-row"><div class="top-guide-line"><div class="top-guide-fill" id="topGuideFill"></div></div></div>
     </div>
     <div class="lang-wrap" id="langWrap">
       <button class="lang-btn" id="langBtn" type="button"><span><span class="globe">🌐</span> <span id="langLabel">Norsk</span></span><span class="chev">⌄</span></button>
@@ -408,9 +968,15 @@ button{font:inherit}
 </div>
 <div class="mobile-menu" id="mobileMenu"></div>
 
+<div class="side-scroll-controls" aria-label="Bla gjennom siden">
+  <button class="side-scroll-btn down" id="scrollDownBtn" type="button" aria-label="Neste steg">↓</button>
+  <button class="side-scroll-btn up" id="scrollUpBtn" type="button" aria-label="Forrige steg">↑</button>
+</div>
+
 <section class="hero" id="top">
   <div class="hero-inner">
     <div>
+      <img class="hero-brand-logo" src="telenor-logo.png" alt="Telenor">
       <h1 data-i18n="heroTitle">Slik får du fiber helt hjem</h1>
       <p data-i18n="heroText">Med vårt gode tilbud får du kostnadsfri befaring og installasjon – og vi tar oss av prosessen hele veien frem til boligen.</p>
     </div>
@@ -419,8 +985,18 @@ button{font:inherit}
 
 <main class="layout" id="process">
   <aside class="sidebar">
-    <div class="side-title" data-i18n="sideTitle">FIBER</div>
+    <div class="side-title" data-i18n="sideTitle">Prosessen fra A-Å</div>
     <div id="sideLinks"></div>
+    <div class="side-divider"></div>
+    <div class="side-title tips-title" data-i18n="tipsTitle">Tips</div>
+    <div class="side-tip-links">
+      <a class="side-link side-special-link" href="#extra"><b>💰</b><span data-i18n="extraTitle">Kan det komme ekstra kostnader?</span></a>
+      <a class="side-link side-special-link" href="#ground"><b>🛠️</b><span data-i18n="groundTitle">Tips før befaring</span></a>
+    </div>
+    <div class="side-contact">
+      <a class="side-contact-icon" href="#contact" aria-label="Kontakt selger"><svg class="phone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.2 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92Z"/></svg></a>
+      <div><div class="side-contact-label" data-i18n="contactTitle">Kontakt</div><a href="tel:+4747666135">+47 476 66 135</a><strong>William Zahl</strong></div>
+    </div>
   </aside>
 
   <div class="main">
@@ -438,7 +1014,7 @@ button{font:inherit}
     <div id="steps"></div>
 
     <section class="risk" id="risk">
-      <div><span class="tag" data-i18n="riskTag">Viktig for deg som kunde</span><h3 data-i18n="riskTitle">Du bestemmer – også etter befaringen</h3><p data-i18n="riskText">Selv om entreprenøren har vært på befaring, trenger du ikke gå videre dersom det viser seg at det kreves ekstra arbeid og kostnader du ikke ønsker. Du kan da trekke deg kostnadsfritt. Du beholder full kontroll og kan velge det som passer best for deg.</p></div>
+      <div><img class="risk-brand-logo" src="telenor-logo.png" alt="Telenor"><span class="tag" data-i18n="riskTag">Viktig for deg som kunde</span><h3 data-i18n="riskTitle">Du bestemmer – også etter befaringen</h3><p data-i18n="riskText">Selv om entreprenøren har vært på befaring, trenger du ikke gå videre dersom det viser seg at det kreves ekstra arbeid og kostnader du ikke ønsker. Du kan da trekke deg kostnadsfritt. Du beholder full kontroll og kan velge det som passer best for deg.</p></div>
       <div class="risk-visual"><div class="shield">✓</div></div>
     </section>
 
@@ -449,21 +1025,33 @@ button{font:inherit}
 
     <section class="final" id="guide">
       <div><div class="eyebrow" data-i18n="finalEyebrow">Neste steg</div><h3 data-i18n="finalTitle">Fiber på plass. Klar for resten.</h3><p data-i18n="finalText">Når installasjonen er ferdig, kan du ta i bruk forbindelsen og få glede av det du har bestilt. Vil du se mer om T-We og underholdningsløsningen, kan du lese den enkle guiden vår.</p></div>
-      <a class="guide" href="https://williamzahl.github.io/introduksjon-t-we/" target="_blank" rel="noopener"><div class="guide-title" data-i18n="guideTitle">Les T-We-guiden</div><div class="guide-text" data-i18n="guideText">Se hvordan T-We fungerer, hvilke valg du har og hva du kan bruke løsningen til.</div><span class="guide-btn" data-i18n="guideButton">Åpne guiden →</span></a>
+      <a class="guide" href="https://williamzahl.github.io/introduksjon-t-we/" target="_blank" rel="noopener"><img class="final-brand-logo" src="telenor-logo.png" alt="Telenor"><div class="guide-title" data-i18n="guideTitle">Les T-We-guiden</div><div class="guide-text" data-i18n="guideText">Se hvordan T-We fungerer, hvilke valg du har og hva du kan bruke løsningen til.</div><span class="guide-btn" data-i18n="guideButton">Åpne guiden →</span></a>
+    </section>
+
+    <section class="bottom-contact" id="contact" aria-label="Kontakt selger">
+      <div class="bottom-contact-half bottom-contact-phone-half">
+        <div class="bottom-contact-icon"><svg class="phone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.2 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92Z"/></svg></div>
+        <div class="bottom-contact-info"><div class="bottom-contact-title" data-i18n="contactTitle">Kontakt selger</div><div class="bottom-contact-name">William Zahl</div><a class="bottom-contact-phone" href="tel:+4747666135">+47 476 66 135</a></div>
+      </div>
+      <div class="bottom-contact-half bottom-contact-mail-half">
+        <a class="bottom-contact-mail" href="mailto:william.zahl@electi.no" aria-label="Send e-post til William Zahl" title="william.zahl@electi.no"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></a>
+        <div class="bottom-contact-info"><div class="bottom-contact-title">E-post</div><a class="bottom-contact-email" href="mailto:william.zahl@electi.no">william.zahl@electi.no</a></div>
+      </div>
+      <div class="bottom-contact-note" data-i18n="contactNote">Kontakt selger dersom du har spørsmål før signering.</div>
     </section>
   </div>
 </main>
 
-<footer class="footer"><div class="footer-inner"><div><strong>Fiber &amp; T-We</strong><br><small id="updated"></small></div><button class="backtop" id="backtop" aria-label="Til toppen">↑</button></div></footer>
+<footer class="footer"><div class="footer-inner"><img class="footer-logo" src="telenor-logo.png" alt="Telenor"><div class="footer-center"><div class="footer-copy"><strong>Fiber &amp; T-We</strong><br><small id="updated"></small></div><div class="footer-disclaimer">Denne siden er kun ment som en uoffisiell informasjonsside for å gjøre prosessen enklere å forstå, og er ikke en offisiell nettside fra Telenor.</div></div></div></footer>
 
 <script>
 const langs={
- no:{label:'Norsk',flag:'🇳🇴',navProcess:'Prosessen',navRisk:'Trygghet',navGuide:'T-We-guiden',topGuideTitle:'T-We fiber guiden',sideTitle:'Prosessen fra A-Å',mobileMenu:'Meny',
- heroEyebrow:'Fiberinstallasjon',heroTitle:'Slik får du fiber helt hjem',heroText:'Med vårt gode tilbud får du kostnadsfri befaring og installasjon<br>– og vi tar oss av prosessen hele veien frem til boligen.',pill1:'Enkel prosess',pill2:'Befaring først',pill3:'Trygt og risikofritt',introEyebrow:'Fra nabolaget til huset',introTitle:'Dette er prosessen – steg for steg',introText:'Du trenger ikke kunne noe om graving, kabler eller installasjon.<br>Her ser du hva som skjer etter at du har sagt ja.',riskTag:'Viktig for deg som kunde',riskTitle:'Du bestemmer – også etter befaringen',riskText:'Selv om entreprenøren har vært på befaring, trenger du ikke gå videre dersom det viser seg at det kreves ekstra arbeid og kostnader du ikke ønsker. Du kan da trekke deg kostnadsfritt. Du beholder full kontroll og kan velge det som passer best for deg.',extraTitle:'Hva hvis det blir dyrere enn normalt?',extraText:'Hvis fremføringen krever uvanlig mye arbeid, for eksempel omfattende graving i asfalt eller komplisert infrastruktur, skal dette avklares med deg. Du skal vite hva som gjelder før du eventuelt velger å gå videre.',groundTitle:'💡 Tips før befaring',groundText:'Vet du om det ligger kabler, rør eller annen infrastruktur i bakken på tomten? Det kan være lurt å undersøke dette på forhånd og informere entreprenøren under befaringen. Det kan gjøre planleggingen av fremføringen enklere.',finalEyebrow:'Neste steg',finalTitle:'Fiber på plass. Klar for resten.',finalText:'Når installasjonen er ferdig, kan du ta i bruk forbindelsen og få glede av det du har bestilt. Vil du se mer om T-We og underholdningsløsningen, kan du lese den enkle guiden vår.',guideTitle:'Les T-We-guiden',guideText:'Se hvordan T-We fungerer, hvilke valg du har og hva du kan bruke løsningen til.',guideButton:'Åpne guiden →',stepWord:'Steg',of:'av',updated:'Sist oppdatert',steps:[['Du bestiller fiber','Når du godkjenner og signerer avtalen, kan installasjonsprosessen starte. Selve standardtilkoblingen er en del av tilbudet – du blir kunde hos oss, så tar vi prosessen videre.','step1.png'],['Entreprenøren tar kontakt','Dersom boligen ikke allerede er koblet til Telenors nett, går installasjonen gjennom en av entreprenørene. Entreprenøren skal ta kontakt med deg innen 3 virkedager for å avtale videre prosess og tidspunkt for befaring.','steg2.png'],['Befaring og vurdering','Entreprenøren vurderer boligen og området rundt, og ser på hvordan fiberkabelen kan føres frem til huset. Dette er tidspunktet hvor de avklarer hva som faktisk lar seg gjøre.','step3.png'],['Fiber føres frem til huset','Fiberkabelen kan bli gravd ned i bakken eller ført via eksisterende ledningsnett i luften. Kunden kan ikke selv velge om fiber skal fremføres via luft- eller jordkabel.','step4.png'],['Installasjonsdato avtales','Når fremføringen er avklart, blir kunden og entreprenøren enige om tidspunkt for installasjonen. Ved tele i bakken, værforhold eller behov for avklaringer rundt felles fremføring kan leveransetiden bli lengre enn normalt.','step5.png'],['Installasjonen gjennomføres','Entreprenøren gjennomfører installasjonen til boligen og sørger for at avtalt utstyr blir levert og installert. Hvor raskt dette kan gjøres avhenger blant annet av infrastrukturen i området og forholdene på stedet.','step6.png'],['Eventuelle ekstra kostnader','I enkelte tilfeller kan fremføringsveien være mer krevende enn normalt – for eksempel hvis det må graves gjennom asfalt eller infrastrukturen er komplisert. Da skal dette avklares med kunden før eventuell ekstra kostnad.','step7.png'],['Ferdig – velkommen som kunde!','Da er fiberforbindelsen på plass. Du har fått en trygg og oversiktlig prosess, og kan nå ta i bruk tjenestene du har bestilt.','step8.png']]},
- en:{label:'English',flag:'🇬🇧',navProcess:'The process',navRisk:'Your safety',navGuide:'T-We guide',topGuideTitle:'T-We fiber guide',sideTitle:'Prosessen fra A-Å',mobileMenu:'Menu',heroEyebrow:'Fiber installation',heroTitle:'How fiber gets all the way to your home',heroText:'With our great offer, you get a free site survey and installation – and we take care of the process all the way to your home.',pill1:'Simple process',pill2:'Site survey first',pill3:'Safe and low-risk',introEyebrow:'From the neighborhood to your home',introTitle:'The process – step by step',introText:'You do not need to know anything about digging, cables or installation.<br>Here is what happens after you say yes.',riskTag:'Important for you',riskTitle:'You are in control – even after the site survey',riskText:'Even if the contractor has visited for a site survey, you do not have to proceed if it turns out that extra work and costs are required and you do not want them. You can then cancel at no cost. You stay in control and can choose what works best for you.',extraTitle:'What if it costs more than normal?',extraText:'If the route requires unusually extensive work, such as digging through asphalt or dealing with complicated infrastructure, this must be clarified with you. You will know what applies before you choose whether to continue.',groundTitle:'💡 Tip before the site survey',groundText:'Do you know if there are cables, pipes or other infrastructure buried on the property? It can be useful to check this in advance and tell the contractor during the site survey. This can make planning the route easier.',finalEyebrow:'Next step',finalTitle:'Fiber in place. Ready for what comes next.',finalText:'Once the installation is complete, you can start using your connection and enjoy the service you ordered. If you want to learn more about T-We, you can read our simple guide.',guideTitle:'Read the T-We guide',guideText:'See how T-We works, what choices you have and what you can use it for.',guideButton:'Open the guide →',stepWord:'Step',of:'of',updated:'Last updated',steps:[['You order fiber','Once you approve and sign the agreement, the installation process can begin. The standard connection is included in the offer – you become our customer and we take the process from there.','step1.png'],['The contractor contacts you','If your home is not already connected to Telenor’s network, installation is handled by one of the contractors. The contractor will contact you within 3 business days to arrange the next steps and a site survey.','steg2.png'],['Site survey and assessment','The contractor assesses the home and surrounding area and looks at how the fiber cable can be brought to the house. This is where they determine what is practically possible.','step3.png'],['Fiber is brought to the house','The fiber cable may be buried underground or routed through existing overhead utility infrastructure. The customer cannot choose between underground and overhead routing.','step4.png'],['Installation date is agreed','Once the route is clarified, you and the contractor agree on an installation date. Frost in the ground, weather or joint-routing clarifications can sometimes make delivery take longer than normal.','step5.png'],['The installation is completed','The contractor completes the connection to the home and delivers and installs the agreed equipment. Timing depends on local infrastructure and conditions at the property.','step6.png'],['Possible extra costs','Sometimes the route can be more demanding than normal – for example if asphalt has to be cut or infrastructure is complicated. This must be clarified with the customer before any extra cost.','step7.png'],['Finished – welcome as a customer!','The fiber connection is now in place. You have had a clear and straightforward process and can start using the services you ordered.','step8.png']]},
- de:{label:'Deutsch',flag:'🇩🇪',navProcess:'Der Ablauf',navRisk:'Ihre Sicherheit',navGuide:'T-We-Leitfaden',topGuideTitle:'T-We-Glasfaser-Leitfaden',sideTitle:'Prosessen fra A-Å',mobileMenu:'Menü',heroEyebrow:'Glasfaser-Installation',heroTitle:'So kommt die Glasfaser bis zu Ihrem Haus',heroText:'Mit unserem guten Angebot erhalten Sie eine kostenlose Besichtigung und Installation – und wir kümmern uns um den gesamten Prozess bis zu Ihrem Haus.',pill1:'Einfacher Ablauf',pill2:'Besichtigung zuerst',pill3:'Sicher und risikofrei',introEyebrow:'Von der Nachbarschaft bis zum Haus',introTitle:'Der Ablauf – Schritt für Schritt',introText:'Sie müssen nichts über Gräben, Kabel oder Installationen wissen.<br>Hier sehen Sie, was passiert, nachdem Sie zugestimmt haben.',riskTag:'Wichtig für Sie',riskTitle:'Sie entscheiden – auch nach der Besichtigung',riskText:'Auch wenn der Auftragnehmer bereits zur Besichtigung vor Ort war, müssen Sie nicht weitermachen, wenn sich herausstellt, dass zusätzliche Arbeiten und Kosten erforderlich sind, die Sie nicht möchten. Sie können dann kostenlos vom Vorhaben zurücktreten. Alles, was wir von Ihnen erwarten, ist, dass Sie Kunde bei uns werden und das angebotene gute Angebot annehmen.',extraTitle:'Was ist, wenn es teurer wird als üblich?',extraText:'Wenn die Leitungsführung ungewöhnlich aufwendig ist, zum Beispiel weil Asphalt aufgebrochen werden muss oder die Infrastruktur kompliziert ist, wird dies mit Ihnen geklärt. Sie wissen vor einer Entscheidung, welche zusätzlichen Kosten entstehen können.',groundTitle:'💡 Tipp vor der Besichtigung',groundText:'Wissen Sie, ob sich auf dem Grundstück Kabel, Rohre oder andere Infrastruktur im Boden befinden? Es kann sinnvoll sein, dies vorher zu prüfen und den Auftragnehmer bei der Besichtigung darüber zu informieren. Das kann die Planung der Leitungsführung erleichtern.',finalEyebrow:'Nächster Schritt',finalTitle:'Glasfaser ist da. Jetzt kann es losgehen.',finalText:'Nach Abschluss der Installation können Sie Ihre Verbindung nutzen. Wenn Sie mehr über T-We und die Unterhaltungslösung erfahren möchten, können Sie unseren einfachen Leitfaden lesen.',guideTitle:'T-We-Leitfaden lesen',guideText:'Erfahren Sie, wie T-We funktioniert, welche Möglichkeiten Sie haben und wofür Sie die Lösung nutzen können.',guideButton:'Leitfaden öffnen →',stepWord:'Schritt',of:'von',updated:'Zuletzt aktualisiert',steps:[['Sie bestellen Glasfaser','Sobald Sie den Vertrag bestätigen und unterschreiben, kann der Installationsprozess beginnen. Der Standardanschluss ist Teil des Angebots – Sie werden unser Kunde und wir kümmern uns um den weiteren Prozess.','step1.png'],['Der Auftragnehmer meldet sich','Wenn Ihr Haus noch nicht an das Telenor-Netz angeschlossen ist, erfolgt die Installation durch einen unserer Auftragnehmer. Der Auftragnehmer meldet sich innerhalb von 3 Werktagen, um das weitere Vorgehen und einen Termin für die Besichtigung zu vereinbaren.','steg2.png'],['Besichtigung und Prüfung','Der Auftragnehmer prüft das Haus und die Umgebung und beurteilt, wie das Glasfaserkabel zum Haus geführt werden kann. Dabei wird geklärt, was praktisch möglich ist.','step3.png'],['Die Glasfaser wird zum Haus geführt','Das Glasfaserkabel kann unterirdisch verlegt oder über vorhandene Leitungen in der Luft geführt werden. Der Kunde kann nicht selbst wählen, ob die Leitung unterirdisch oder überirdisch geführt wird.','step4.png'],['Installationstermin wird vereinbart','Nach der Klärung der Leitungsführung vereinbaren Kunde und Auftragnehmer einen Installationstermin. Frost im Boden, Wetter oder notwendige Abstimmungen bei gemeinsamer Leitungsführung können zu längeren Lieferzeiten führen.','step5.png'],['Die Installation wird durchgeführt','Der Auftragnehmer führt die Verbindung bis zum Haus und liefert und installiert die vereinbarte Ausstattung. Die Dauer hängt unter anderem von der Infrastruktur und den Bedingungen vor Ort ab.','step6.png'],['Mögliche zusätzliche Kosten','In manchen Fällen kann die Leitungsführung aufwendiger sein als üblich – zum Beispiel wenn Asphalt geöffnet werden muss oder die Infrastruktur kompliziert ist. Dies wird vor möglichen Zusatzkosten mit dem Kunden geklärt.','step7.png'],['Fertig – willkommen als Kunde!','Die Glasfaserverbindung ist nun eingerichtet. Sie hatten einen klaren und übersichtlichen Ablauf und können die bestellten Dienste nutzen.','step8.png']]},
- es:{label:'Español',flag:'🇪🇸',navProcess:'El proceso',navRisk:'Tu seguridad',navGuide:'Guía T-We',topGuideTitle:'Guía de fibra T-We',sideTitle:'El proceso paso a paso',mobileMenu:'Menú',heroEyebrow:'Instalación de fibra',heroTitle:'Así llega la fibra hasta tu casa',heroText:'Con nuestra buena oferta, la visita y la instalación son gratuitas, y nosotros nos encargamos de todo el proceso hasta tu vivienda.',pill1:'Proceso sencillo',pill2:'Visita primero',pill3:'Seguro y sin riesgos',introEyebrow:'Del barrio a tu casa',introTitle:'El proceso – paso a paso',introText:'No necesitas saber nada sobre zanjas, cables o instalaciones.<br>Aquí puedes ver qué ocurre después de aceptar.',riskTag:'Importante para ti',riskTitle:'Tú decides, incluso después de la visita',riskText:'Aunque el contratista ya haya realizado una visita a tu vivienda, no tienes que continuar si resulta que son necesarios trabajos y costes adicionales que no quieres asumir. En ese caso puedes cancelar sin coste. Tú mantienes el control y puedes elegir lo que mejor te convenga.',extraTitle:'¿Y si cuesta más de lo normal?',extraText:'Si el trazado requiere un trabajo especialmente complicado, por ejemplo cortar asfalto o trabajar con una infraestructura compleja, se hablará contigo antes de cualquier coste adicional.',groundTitle:'💡 Consejo antes de la visita',groundText:'¿Sabes si hay cables, tuberías u otra infraestructura bajo tierra en la propiedad? Puede ser útil comprobarlo de antemano e informar al contratista durante la visita. Esto puede facilitar la planificación del trazado.',finalEyebrow:'Siguiente paso',finalTitle:'Fibra instalada. Todo listo.',finalText:'Cuando termine la instalación podrás utilizar tu conexión. Si quieres saber más sobre T-We y la solución de entretenimiento, puedes leer nuestra guía sencilla.',guideTitle:'Leer la guía de T-We',guideText:'Descubre cómo funciona T-We, qué opciones tienes y para qué puedes utilizar la solución.',guideButton:'Abrir la guía →',stepWord:'Paso',of:'de',updated:'Última actualización',steps:[['Solicitas la fibra','Cuando apruebas y firmas el acuerdo, puede comenzar el proceso de instalación. La conexión estándar forma parte de la oferta: te haces cliente y nosotros nos encargamos del proceso.','step1.png'],['El contratista se pone en contacto','Si tu vivienda todavía no está conectada a la red de Telenor, la instalación la realiza uno de nuestros contratistas. El contratista se pondrá en contacto contigo en un plazo de 3 días laborables para acordar los siguientes pasos y una visita.','steg2.png'],['Visita y evaluación','El contratista evalúa la vivienda y sus alrededores y estudia cómo llevar el cable de fibra hasta la casa. En esta visita se determina qué es posible realizar de forma práctica.','step3.png'],['La fibra llega hasta la vivienda','El cable puede enterrarse o llevarse mediante la infraestructura aérea existente. El cliente no puede elegir entre una instalación aérea o subterránea.','step4.png'],['Se acuerda la fecha de instalación','Una vez aclarado el trazado, el cliente y el contratista acuerdan una fecha. Las heladas, el tiempo o las aclaraciones sobre trazados compartidos pueden alargar el plazo.','step5.png'],['Se realiza la instalación','El contratista completa la conexión hasta la vivienda y entrega e instala el equipo acordado. El tiempo depende, entre otras cosas, de la infraestructura y las condiciones del lugar.','step6.png'],['Posibles costes adicionales','En algunos casos el trazado puede ser más complicado de lo normal, por ejemplo si hay que cortar asfalto o la infraestructura es compleja. Esto se debe aclarar antes de cualquier coste adicional.','step7.png'],['Terminado – ¡bienvenido como cliente!','La conexión de fibra ya está instalada. Has tenido un proceso claro y sencillo y puedes empezar a utilizar los servicios que has contratado.','step8.png']]},
- pl:{label:'Polski',flag:'🇵🇱',navProcess:'Proces',navRisk:'Twoje bezpieczeństwo',navGuide:'Przewodnik T-We',topGuideTitle:'Przewodnik światłowodowy T-We',sideTitle:'Proces od A do Z',mobileMenu:'Menu',heroEyebrow:'Instalacja światłowodu',heroTitle:'Tak światłowód trafia do Twojego domu',heroText:'W ramach naszej dobrej oferty otrzymujesz bezpłatną wizję lokalną i instalację, a my zajmujemy się całym procesem doprowadzenia światłowodu do domu.',pill1:'Prosty proces',pill2:'Najpierw wizja lokalna',pill3:'Bezpiecznie i bez ryzyka',introEyebrow:'Od sieci w okolicy do domu',introTitle:'Proces – krok po kroku',introText:'Nie musisz znać się na wykopach, kablach ani instalacji.<br>Tutaj zobaczysz, co dzieje się po zaakceptowaniu oferty.',riskTag:'Ważne dla Ciebie',riskTitle:'To Ty decydujesz – także po wizji lokalnej',riskText:'Nawet jeśli wykonawca był już na wizji lokalnej, nie musisz kontynuować, jeśli okaże się, że potrzebne są dodatkowe prace i koszty, których nie chcesz ponosić. Możesz wtedy zrezygnować bez kosztów. To Ty zachowujesz pełną kontrolę i możesz wybrać rozwiązanie, które najbardziej Ci odpowiada.',extraTitle:'Co jeśli będzie drożej niż zwykle?',extraText:'Jeśli doprowadzenie światłowodu wymaga nietypowo dużego nakładu pracy, na przykład przebicia się przez asfalt lub prac przy skomplikowanej infrastrukturze, zostanie to z Tobą uzgodnione przed ewentualnym dodatkowym kosztem.',groundTitle:'💡 Wskazówka przed wizją lokalną',groundText:'Czy wiesz, czy na działce znajdują się kable, rury lub inna infrastruktura pod ziemią? Warto sprawdzić to wcześniej i poinformować o tym wykonawcę podczas wizji lokalnej. Może to ułatwić zaplanowanie trasy.',finalEyebrow:'Następny krok',finalTitle:'Światłowód gotowy. Możesz korzystać.',finalText:'Po zakończeniu instalacji możesz korzystać z połączenia. Jeśli chcesz dowiedzieć się więcej o T-We, możesz przeczytać nasz prosty przewodnik.',guideTitle:'Przeczytaj przewodnik T-We',guideText:'Zobacz, jak działa T-We, jakie masz możliwości i do czego możesz wykorzystać rozwiązanie.',guideButton:'Otwórz przewodnik →',stepWord:'Krok',of:'z',updated:'Ostatnia aktualizacja',steps:[
+ no:{label:'Norsk',flag:'🇳🇴',navProcess:'Prosessen',navRisk:'Trygghet',navGuide:'T-We-guiden',sideTitle:'Prosessen fra A-Å',mobileMenu:'Meny',tipsTitle:'Tips',contactTitle:'Kontakt selger',contactNote:'Kontakt selger dersom du har spørsmål før signering.',disclaimer:'Denne siden er kun ment som en uoffisiell informasjonsside for å gjøre prosessen enklere å forstå, og er ikke en offisiell nettside fra Telenor.',
+ heroEyebrow:'Fiberinstallasjon',heroTitle:'Slik får du fiber helt hjem',heroText:'Med vårt gode tilbud får du kostnadsfri befaring og installasjon<br>– og vi tar oss av prosessen hele veien frem til boligen.',pill1:'Enkel prosess',pill2:'Befaring først',pill3:'Trygt og risikofritt',introEyebrow:'Fra nabolaget til huset',introTitle:'Dette er prosessen – steg for steg',introText:'Du trenger ikke kunne noe om graving, kabler eller installasjon.<br>Her ser du hva som skjer etter at du har sagt ja.',riskTag:'Viktig for deg som kunde',riskTitle:'Du bestemmer – også etter befaringen',riskText:'Selv om entreprenøren har vært på befaring, trenger du ikke gå videre dersom det viser seg at det kreves ekstra arbeid og kostnader du ikke ønsker. Du kan da trekke deg kostnadsfritt. Du beholder full kontroll og kan velge det som passer best for deg.',extraTitle:'Kan det komme ekstra kostnader?',extraText:'Hvis fremføringen krever uvanlig mye arbeid, avklarer entreprenøren dette med deg før det eventuelt påløper ekstra kostnader. Du kan takke nei og trekke deg risikofritt før arbeidet starter.',groundTitle:'Tips før befaring',groundText:'Vet du om det ligger kabler, rør eller annen infrastruktur i bakken på tomten? Det kan være lurt å undersøke dette på forhånd og informere entreprenøren under befaringen. Det kan gjøre planleggingen av fremføringen enklere.',finalEyebrow:'Neste steg',finalTitle:'Fiber på plass. Klar for resten.',finalText:'Når installasjonen er ferdig, kan du ta i bruk forbindelsen og få glede av det du har bestilt. Vil du se mer om T-We og underholdningsløsningen, kan du lese den enkle guiden vår.',guideTitle:'Les T-We-guiden',guideText:'Se hvordan T-We fungerer, hvilke valg du har og hva du kan bruke løsningen til.',guideButton:'Åpne guiden →',stepWord:'Steg',of:'av',previousStep:'Forrige',nextStep:'Neste steg',updated:'Sist oppdatert',steps:[['Du bestiller fiber','Når du godkjenner og signerer avtalen, kan installasjonsprosessen starte. Selve standardtilkoblingen er en del av tilbudet – du blir kunde hos oss, så tar vi prosessen videre.','step1.png'],['Entreprenøren tar kontakt','Dersom boligen ikke allerede er koblet til Telenors nett, går installasjonen gjennom en av entreprenørene. Entreprenøren skal ta kontakt med deg innen 3 virkedager for å avtale videre prosess og tidspunkt for befaring.','steg2.png'],['Befaring og vurdering','Entreprenøren vurderer boligen og området rundt, og ser på hvordan fiberkabelen kan føres frem til huset. Dette er tidspunktet hvor de avklarer hva som faktisk lar seg gjøre.','step3.png'],['Fiber føres frem til huset','Fiberkabelen kan bli gravd ned i bakken eller ført via eksisterende ledningsnett i luften. Kunden kan ikke selv velge om fiber skal fremføres via luft- eller jordkabel.','step4.png'],['Installasjonsdato avtales','Når fremføringen er avklart, blir kunden og entreprenøren enige om tidspunkt for installasjonen. Ved tele i bakken, værforhold eller behov for avklaringer rundt felles fremføring kan leveransetiden bli lengre enn normalt.','step5.png'],['Installasjonen gjennomføres','Entreprenøren gjennomfører installasjonen til boligen og sørger for at avtalt utstyr blir levert og installert. Hvor raskt dette kan gjøres avhenger blant annet av infrastrukturen i området og forholdene på stedet.','step6.png'],['Eventuelle ekstra kostnader','I enkelte tilfeller kan fremføringsveien være mer krevende enn normalt – for eksempel hvis det må graves gjennom asfalt eller infrastrukturen er komplisert. Da skal dette avklares med kunden før eventuell ekstra kostnad.','step7.png'],['Ferdig – velkommen som kunde!','Da er fiberforbindelsen på plass. Du har fått en trygg og oversiktlig prosess, og kan nå ta i bruk tjenestene du har bestilt.','step8.png']]},
+ en:{label:'English',flag:'🇬🇧',navProcess:'The process',navRisk:'Your safety',navGuide:'T-We guide',sideTitle:'Prosessen fra A-Å',mobileMenu:'Menu',tipsTitle:'Tips',contactTitle:'Contact seller',contactNote:'Contact the seller if you have any questions before signing.',disclaimer:'This page is only intended as an unofficial information page to make the process easier to understand, and is not an official Telenor website.',heroEyebrow:'Fiber installation',heroTitle:'How fiber gets all the way to your home',heroText:'With our great offer, you get a free site survey and installation – and we take care of the process all the way to your home.',pill1:'Simple process',pill2:'Site survey first',pill3:'Safe and low-risk',introEyebrow:'From the neighborhood to your home',introTitle:'The process – step by step',introText:'You do not need to know anything about digging, cables or installation.<br>Here is what happens after you say yes.',riskTag:'Important for you',riskTitle:'You are in control – even after the site survey',riskText:'Even if the contractor has visited for a site survey, you do not have to proceed if it turns out that extra work and costs are required and you do not want them. You can then cancel at no cost. You stay in control and can choose what works best for you.',extraTitle:'Could there be extra costs?',extraText:'If the route requires unusually extensive work, such as digging through asphalt or dealing with complicated infrastructure, this must be clarified with you. You will know what applies before you choose whether to continue. If extra costs arise that you do not want to accept, or you change your mind after the site survey, you can withdraw without risk before the work starts.',groundTitle:'Tip before the site survey',groundText:'Do you know if there are cables, pipes or other infrastructure buried on the property? It can be useful to check this in advance and tell the contractor during the site survey. This can make planning the route easier.',finalEyebrow:'Next step',finalTitle:'Fiber in place. Ready for what comes next.',finalText:'Once the installation is complete, you can start using your connection and enjoy the service you ordered. If you want to learn more about T-We, you can read our simple guide.',guideTitle:'Read the T-We guide',guideText:'See how T-We works, what choices you have and what you can use it for.',guideButton:'Open the guide →',stepWord:'Step',of:'of',previousStep:'Previous',nextStep:'Next step',updated:'Last updated',steps:[['You order fiber','Once you approve and sign the agreement, the installation process can begin. The standard connection is included in the offer – you become our customer and we take the process from there.','step1.png'],['The contractor contacts you','If your home is not already connected to Telenor’s network, installation is handled by one of the contractors. The contractor will contact you within 3 business days to arrange the next steps and a site survey.','steg2.png'],['Site survey and assessment','The contractor assesses the home and surrounding area and looks at how the fiber cable can be brought to the house. This is where they determine what is practically possible.','step3.png'],['Fiber is brought to the house','The fiber cable may be buried underground or routed through existing overhead utility infrastructure. The customer cannot choose between underground and overhead routing.','step4.png'],['Installation date is agreed','Once the route is clarified, you and the contractor agree on an installation date. Frost in the ground, weather or joint-routing clarifications can sometimes make delivery take longer than normal.','step5.png'],['The installation is completed','The contractor completes the connection to the home and delivers and installs the agreed equipment. Timing depends on local infrastructure and conditions at the property.','step6.png'],['Possible extra costs','Sometimes the route can be more demanding than normal – for example if asphalt has to be cut or infrastructure is complicated. This must be clarified with the customer before any extra cost.','step7.png'],['Finished – welcome as a customer!','The fiber connection is now in place. You have had a clear and straightforward process and can start using the services you ordered.','step8.png']]},
+ de:{label:'Deutsch',flag:'🇩🇪',navProcess:'Der Ablauf',navRisk:'Ihre Sicherheit',navGuide:'T-We-Leitfaden',sideTitle:'Prosessen fra A-Å',mobileMenu:'Menü',tipsTitle:'Tipps',contactTitle:'Verkäufer kontaktieren',contactNote:'Wenden Sie sich an den Verkäufer, wenn Sie vor der Unterzeichnung Fragen haben.',disclaimer:'Diese Seite dient ausschließlich als inoffizielle Informationsseite, um den Prozess verständlicher zu machen, und ist keine offizielle Telenor-Website.',heroEyebrow:'Glasfaser-Installation',heroTitle:'So kommt die Glasfaser bis zu Ihrem Haus',heroText:'Mit unserem guten Angebot erhalten Sie eine kostenlose Besichtigung und Installation – und wir kümmern uns um den gesamten Prozess bis zu Ihrem Haus.',pill1:'Einfacher Ablauf',pill2:'Besichtigung zuerst',pill3:'Sicher und risikofrei',introEyebrow:'Von der Nachbarschaft bis zum Haus',introTitle:'Der Ablauf – Schritt für Schritt',introText:'Sie müssen nichts über Gräben, Kabel oder Installationen wissen.<br>Hier sehen Sie, was passiert, nachdem Sie zugestimmt haben.',riskTag:'Wichtig für Sie',riskTitle:'Sie entscheiden – auch nach der Besichtigung',riskText:'Auch wenn der Auftragnehmer bereits zur Besichtigung vor Ort war, müssen Sie nicht weitermachen, wenn sich herausstellt, dass zusätzliche Arbeiten und Kosten erforderlich sind, die Sie nicht möchten. Sie können dann kostenlos vom Vorhaben zurücktreten. Alles, was wir von Ihnen erwarten, ist, dass Sie Kunde bei uns werden und das angebotene gute Angebot annehmen.',extraTitle:'Was ist, wenn es teurer wird als üblich?',extraText:'Wenn die Leitungsführung ungewöhnlich aufwendig ist, zum Beispiel weil Asphalt aufgebrochen werden muss oder die Infrastruktur kompliziert ist, wird dies mit Ihnen geklärt. Sie wissen vor einer Entscheidung, welche zusätzlichen Kosten entstehen können. Wenn zusätzliche Kosten entstehen, die Sie nicht übernehmen möchten, oder Sie es sich nach der Besichtigung anders überlegen, können Sie vor Beginn der Arbeiten risikofrei zurücktreten.',groundTitle:'Tipp vor der Besichtigung',groundText:'Wissen Sie, ob sich auf dem Grundstück Kabel, Rohre oder andere Infrastruktur im Boden befinden? Es kann sinnvoll sein, dies vorher zu prüfen und den Auftragnehmer bei der Besichtigung darüber zu informieren. Das kann die Planung der Leitungsführung erleichtern.',finalEyebrow:'Nächster Schritt',finalTitle:'Glasfaser ist da. Jetzt kann es losgehen.',finalText:'Nach Abschluss der Installation können Sie Ihre Verbindung nutzen. Wenn Sie mehr über T-We und die Unterhaltungslösung erfahren möchten, können Sie unseren einfachen Leitfaden lesen.',guideTitle:'T-We-Leitfaden lesen',guideText:'Erfahren Sie, wie T-We funktioniert, welche Möglichkeiten Sie haben und wofür Sie die Lösung nutzen können.',guideButton:'Leitfaden öffnen →',stepWord:'Schritt',of:'von',previousStep:'Zurück',nextStep:'Nächster Schritt',updated:'Zuletzt aktualisiert',steps:[['Sie bestellen Glasfaser','Sobald Sie den Vertrag bestätigen und unterschreiben, kann der Installationsprozess beginnen. Der Standardanschluss ist Teil des Angebots – Sie werden unser Kunde und wir kümmern uns um den weiteren Prozess.','step1.png'],['Der Auftragnehmer meldet sich','Wenn Ihr Haus noch nicht an das Telenor-Netz angeschlossen ist, erfolgt die Installation durch einen unserer Auftragnehmer. Der Auftragnehmer meldet sich innerhalb von 3 Werktagen, um das weitere Vorgehen und einen Termin für die Besichtigung zu vereinbaren.','steg2.png'],['Besichtigung und Prüfung','Der Auftragnehmer prüft das Haus und die Umgebung und beurteilt, wie das Glasfaserkabel zum Haus geführt werden kann. Dabei wird geklärt, was praktisch möglich ist.','step3.png'],['Die Glasfaser wird zum Haus geführt','Das Glasfaserkabel kann unterirdisch verlegt oder über vorhandene Leitungen in der Luft geführt werden. Der Kunde kann nicht selbst wählen, ob die Leitung unterirdisch oder überirdisch geführt wird.','step4.png'],['Installationstermin wird vereinbart','Nach der Klärung der Leitungsführung vereinbaren Kunde und Auftragnehmer einen Installationstermin. Frost im Boden, Wetter oder notwendige Abstimmungen bei gemeinsamer Leitungsführung können zu längeren Lieferzeiten führen.','step5.png'],['Die Installation wird durchgeführt','Der Auftragnehmer führt die Verbindung bis zum Haus und liefert und installiert die vereinbarte Ausstattung. Die Dauer hängt unter anderem von der Infrastruktur und den Bedingungen vor Ort ab.','step6.png'],['Mögliche zusätzliche Kosten','In manchen Fällen kann die Leitungsführung aufwendiger sein als üblich – zum Beispiel wenn Asphalt geöffnet werden muss oder die Infrastruktur kompliziert ist. Dies wird vor möglichen Zusatzkosten mit dem Kunden geklärt.','step7.png'],['Fertig – willkommen als Kunde!','Die Glasfaserverbindung ist nun eingerichtet. Sie hatten einen klaren und übersichtlichen Ablauf und können die bestellten Dienste nutzen.','step8.png']]},
+ es:{label:'Español',flag:'🇪🇸',navProcess:'El proceso',navRisk:'Tu seguridad',navGuide:'Guía T-We',sideTitle:'El proceso paso a paso',mobileMenu:'Menú',tipsTitle:'Consejos',contactTitle:'Contactar con el vendedor',contactNote:'Contacta con el vendedor si tienes preguntas antes de firmar.',disclaimer:'Esta página solo tiene como objetivo ofrecer información no oficial para facilitar la comprensión del proceso y no es un sitio web oficial de Telenor.',heroEyebrow:'Instalación de fibra',heroTitle:'Así llega la fibra hasta tu casa',heroText:'Con nuestra buena oferta, la visita y la instalación son gratuitas, y nosotros nos encargamos de todo el proceso hasta tu vivienda.',pill1:'Proceso sencillo',pill2:'Visita primero',pill3:'Seguro y sin riesgos',introEyebrow:'Del barrio a tu casa',introTitle:'El proceso – paso a paso',introText:'No necesitas saber nada sobre zanjas, cables o instalaciones.<br>Aquí puedes ver qué ocurre después de aceptar.',riskTag:'Importante para ti',riskTitle:'Tú decides, incluso después de la visita',riskText:'Aunque el contratista ya haya realizado una visita a tu vivienda, no tienes que continuar si resulta que son necesarios trabajos y costes adicionales que no quieres asumir. En ese caso puedes cancelar sin coste. Tú mantienes el control y puedes elegir lo que mejor te convenga.',extraTitle:'¿Puede haber costes adicionales?',extraText:'Si la instalación requiere un trabajo especialmente complicado, el contratista lo aclarará contigo antes de que aparezcan costes adicionales. Puedes decir que no y retirarte sin riesgo antes de que comiencen los trabajos.',groundTitle:'Consejo antes de la visita',groundText:'¿Sabes si hay cables, tuberías u otra infraestructura bajo tierra en la propiedad? Puede ser útil comprobarlo de antemano e informar al contratista durante la visita. Esto puede facilitar la planificación del trazado.',finalEyebrow:'Siguiente paso',finalTitle:'Fibra instalada. Todo listo.',finalText:'Cuando termine la instalación podrás utilizar tu conexión. Si quieres saber más sobre T-We y la solución de entretenimiento, puedes leer nuestra guía sencilla.',guideTitle:'Leer la guía de T-We',guideText:'Descubre cómo funciona T-We, qué opciones tienes y para qué puedes utilizar la solución.',guideButton:'Abrir la guía →',stepWord:'Paso',of:'de',previousStep:'Anterior',nextStep:'Siguiente paso',updated:'Última actualización',steps:[['Solicitas la fibra','Cuando apruebas y firmas el acuerdo, puede comenzar el proceso de instalación. La conexión estándar forma parte de la oferta: te haces cliente y nosotros nos encargamos del proceso.','step1.png'],['El contratista se pone en contacto','Si tu vivienda todavía no está conectada a la red de Telenor, la instalación la realiza uno de nuestros contratistas. El contratista se pondrá en contacto contigo en un plazo de 3 días laborables para acordar los siguientes pasos y una visita.','steg2.png'],['Visita y evaluación','El contratista evalúa la vivienda y sus alrededores y estudia cómo llevar el cable de fibra hasta la casa. En esta visita se determina qué es posible realizar de forma práctica.','step3.png'],['La fibra llega hasta la vivienda','El cable puede enterrarse o llevarse mediante la infraestructura aérea existente. El cliente no puede elegir entre una instalación aérea o subterránea.','step4.png'],['Se acuerda la fecha de instalación','Una vez aclarado el trazado, el cliente y el contratista acuerdan una fecha. Las heladas, el tiempo o las aclaraciones sobre trazados compartidos pueden alargar el plazo.','step5.png'],['Se realiza la instalación','El contratista completa la conexión hasta la vivienda y entrega e instala el equipo acordado. El tiempo depende, entre otras cosas, de la infraestructura y las condiciones del lugar.','step6.png'],['Posibles costes adicionales','En algunos casos el trazado puede ser más complicado de lo normal, por ejemplo si hay que cortar asfalto o la infraestructura es compleja. Esto se debe aclarar antes de cualquier coste adicional.','step7.png'],['Terminado – ¡bienvenido como cliente!','La conexión de fibra ya está instalada. Has tenido un proceso claro y sencillo y puedes empezar a utilizar los servicios que has contratado.','step8.png']]},
+ pl:{label:'Polski',flag:'🇵🇱',navProcess:'Proces',navRisk:'Twoje bezpieczeństwo',navGuide:'Przewodnik T-We',sideTitle:'Proces od A do Z',mobileMenu:'Menu',tipsTitle:'Wskazówki',contactTitle:'Skontaktuj się ze sprzedawcą',contactNote:'Skontaktuj się ze sprzedawcą, jeśli masz pytania przed podpisaniem.',disclaimer:'Ta strona służy wyłącznie jako nieoficjalna strona informacyjna, aby ułatwić zrozumienie procesu, i nie jest oficjalną stroną internetową Telenor.',heroEyebrow:'Instalacja światłowodu',heroTitle:'Tak światłowód trafia do Twojego domu',heroText:'W ramach naszej dobrej oferty otrzymujesz bezpłatną wizję lokalną i instalację, a my zajmujemy się całym procesem doprowadzenia światłowodu do domu.',pill1:'Prosty proces',pill2:'Najpierw wizja lokalna',pill3:'Bezpiecznie i bez ryzyka',introEyebrow:'Od sieci w okolicy do domu',introTitle:'Proces – krok po kroku',introText:'Nie musisz znać się na wykopach, kablach ani instalacji.<br>Tutaj zobaczysz, co dzieje się po zaakceptowaniu oferty.',riskTag:'Ważne dla Ciebie',riskTitle:'To Ty decydujesz – także po wizji lokalnej',riskText:'Nawet jeśli wykonawca był już na wizji lokalnej, nie musisz kontynuować, jeśli okaże się, że potrzebne są dodatkowe prace i koszty, których nie chcesz ponosić. Możesz wtedy zrezygnować bez kosztów. To Ty zachowujesz pełną kontrolę i możesz wybrać rozwiązanie, które najbardziej Ci odpowiada.',extraTitle:'Czy mogą pojawić się dodatkowe koszty?',extraText:'Jeśli doprowadzenie światłowodu wymaga nietypowo dużego nakładu pracy, wykonawca uzgodni to z Tobą przed ewentualnymi dodatkowymi kosztami. Możesz odmówić i bez ryzyka zrezygnować przed rozpoczęciem prac.',groundTitle:'Wskazówka przed wizją lokalną',groundText:'Czy wiesz, czy na działce znajdują się kable, rury lub inna infrastruktura pod ziemią? Warto sprawdzić to wcześniej i poinformować o tym wykonawcę podczas wizji lokalnej. Może to ułatwić zaplanowanie trasy.',finalEyebrow:'Następny krok',finalTitle:'Światłowód gotowy. Możesz korzystać.',finalText:'Po zakończeniu instalacji możesz korzystać z połączenia. Jeśli chcesz dowiedzieć się więcej o T-We, możesz przeczytać nasz prosty przewodnik.',guideTitle:'Przeczytaj przewodnik T-We',guideText:'Zobacz, jak działa T-We, jakie masz możliwości i do czego możesz wykorzystać rozwiązanie.',guideButton:'Otwórz przewodnik →',stepWord:'Krok',of:'z',previousStep:'Poprzedni',nextStep:'Następny krok',updated:'Ostatnia aktualizacja',steps:[
  ['Zamawiasz światłowód','Po zaakceptowaniu i podpisaniu umowy może rozpocząć się proces instalacji. Standardowe podłączenie jest częścią oferty – zostajesz naszym klientem, a my zajmujemy się dalszym procesem.','step1.png'],['Wykonawca kontaktuje się z Tobą','Jeśli dom nie jest jeszcze podłączony do sieci Telenor, instalację realizuje jeden z wykonawców. Wykonawca skontaktuje się z Tobą w ciągu 3 dni roboczych, aby ustalić dalsze kroki i termin wizji lokalnej.','steg2.png'],['Wizja lokalna i ocena','Wykonawca ocenia dom i jego otoczenie oraz sprawdza, jak można doprowadzić kabel światłowodowy do domu. Wtedy ustalane jest, co jest praktycznie możliwe.','step3.png'],['Światłowód jest doprowadzany do domu','Kabel może zostać zakopany w ziemi lub poprowadzony przez istniejącą infrastrukturę napowietrzną. Klient nie może sam wybrać sposobu poprowadzenia kabla.','step4.png'],['Ustalany jest termin instalacji','Po ustaleniu sposobu doprowadzenia klient i wykonawca uzgadniają termin instalacji. Mróz w ziemi, pogoda lub uzgodnienia dotyczące wspólnego przebiegu mogą wydłużyć czas realizacji.','step5.png'],['Instalacja jest wykonywana','Wykonawca wykonuje podłączenie do domu oraz dostarcza i instaluje uzgodniony sprzęt. Czas zależy między innymi od infrastruktury i warunków na miejscu.','step6.png'],['Możliwe dodatkowe koszty','W niektórych przypadkach trasa może wymagać więcej pracy niż zwykle, np. jeśli trzeba przeciąć asfalt lub infrastruktura jest skomplikowana. Ewentualny dodatkowy koszt musi zostać z Tobą uzgodniony.','step7.png'],['Gotowe – witamy jako klienta!','Połączenie światłowodowe jest już gotowe. Proces był przejrzysty i prosty, a teraz możesz korzystać z zamówionych usług.','step8.png'] ]}
 };
 
@@ -471,7 +1059,7 @@ let current='no';
 const langWrap=document.getElementById('langWrap'),langBtn=document.getElementById('langBtn'),langMenu=document.getElementById('langMenu'),topScrollNav=document.getElementById('topScrollNav');
 const stepsEl=document.getElementById('steps'),sideLinks=document.getElementById('sideLinks'),mobileMenu=document.getElementById('mobileMenu');
 const icons={
- phone:`<svg viewBox="0 0 64 64"><path d="M18 9h9l5 14-7 5c4 8 10 14 18 18l5-7 14 5v9c0 4-3 7-7 7C35 60 4 29 4 9c0-4 3-7 7-7h7z"/></svg>`,
+ phone:`<svg class="phone-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.2 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92Z"/></svg>`,
  search:`<svg viewBox="0 0 64 64"><circle cx="28" cy="28" r="18"/><path d="M42 42l15 15"/><path d="M20 28h16M28 20v16"/></svg>`,
  calendar:`<svg viewBox="0 0 64 64"><rect x="8" y="12" width="48" height="44" rx="5"/><path d="M18 5v14M46 5v14M8 25h48M19 34h1M31 34h1M43 34h1M19 45h1M31 45h1M43 45h1"/></svg>`
 };
@@ -479,50 +1067,150 @@ function esc(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;',
 function applyText(){const l=langs[current];document.documentElement.lang=current==='no'?'no':current;document.title=l.heroTitle;document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.dataset.i18n;if(l[k]!==undefined){if(k==='heroText'||k==='introText') el.innerHTML=l[k]; else el.textContent=l[k]}});document.getElementById('langLabel').textContent=l.label;document.getElementById('mobileMenuText').textContent=l.mobileMenu;}
 function renderLangs(){langMenu.innerHTML=Object.entries(langs).map(([k,l])=>`<button class="lang-option ${k===current?'active':''}" data-lang="${k}"><span>${l.flag}</span>${esc(l.label)}</button>`).join('');}
 function stepMedia(type){return type ? `<div class="step-media"><img src="${type}" loading="lazy" alt=""></div>` : ''}
-function renderSteps(){const l=langs[current];stepsEl.innerHTML=l.steps.map((s,i)=>`<article class="step" id="step-${i+1}"><div class="step-inner"><div class="step-head"><div class="num">${i+1}</div><h3>${esc(s[0])}</h3></div><p>${esc(s[1])}</p>${stepMedia(s[2])}</div></article>`).join('');sideLinks.innerHTML=l.steps.map((s,i)=>`<a class="side-link" href="#step-${i+1}"><b>${i+1}</b><span>${esc(s[0])}</span></a>`).join('');mobileMenu.innerHTML=`<div class="mobile-section-title">${esc(l.sideTitle)}</div><a class="mobile-section-link active" href="#process" data-section="process">${esc(l.navProcess)}</a><a class="mobile-section-link" href="#risk" data-section="risk">${esc(l.navRisk)}</a><a class="mobile-section-link" href="#guide" data-section="guide">${esc(l.navGuide)}</a><div class="mobile-divider"></div>`+l.steps.map((s,i)=>`<a class="mobile-step-link" href="#step-${i+1}">${i+1}. ${esc(s[0])}</a>`).join('');}
-function updateFooter(){const l=langs[current];const month=new Intl.DateTimeFormat(current==='no'?'nb-NO':current+'-'+current.toUpperCase(),{month:'long'}).format(new Date());document.getElementById('updated').textContent=`${l.updated} ${month} ${new Date().getFullYear()}.`;}
+function renderSteps(){
+  const l=langs[current];
+  stepsEl.innerHTML=l.steps.map((s,i)=>{
+    const prev=i>0?`<a class="step-nav-btn prev" href="#step-${i}">← <span>${esc(l.previousStep)}</span></a>`:'';
+    const next=i<l.steps.length-1?`<a class="step-nav-btn next" href="#step-${i+2}"><span>${esc(l.nextStep)}</span> →</a>`:'';
+    const nav=(prev||next)?`<div class="step-nav">${prev}${next}</div>`:'';
+    return `<article class="step" id="step-${i+1}"><div class="step-inner"><div class="step-head"><div class="num">${i+1}</div><h3>${esc(s[0])}</h3></div><p>${esc(s[1])}</p>${stepMedia(s[2])}</div></article>${nav}`;
+  }).join('');
+  sideLinks.innerHTML=l.steps.map((s,i)=>`<a class="side-link side-step-link" href="#step-${i+1}"><b>${i+1}</b><span>${esc(s[0])}</span></a>`).join('');
+  mobileMenu.innerHTML=`<div class="mobile-section-title">${esc(l.sideTitle)}</div>`+l.steps.map((s,i)=>`<a class="mobile-step-link mobile-step-process-link" href="#step-${i+1}">${i+1}. ${esc(s[0])}</a>`).join('')+`<div class="mobile-divider"></div><div class="mobile-section-title">${esc(l.tipsTitle)}</div><a class="mobile-step-link mobile-special-link" href="#extra">${esc(l.extraTitle)}</a><a class="mobile-step-link mobile-special-link" href="#ground">🛠️ ${esc(l.groundTitle)}</a><div class="mobile-divider"></div><div class="mobile-contact"><div class="mobile-contact-icon">${icons.phone}</div><div><div class="mobile-contact-label">${esc(l.contactTitle)}</div><a href="tel:+4747666135">+47 476 66 135</a><strong>William Zahl</strong><a href="mailto:william.zahl@electi.no">william.zahl@electi.no</a></div></div>`;
+  stepsEl.querySelectorAll('.step-nav-btn').forEach(a=>a.addEventListener('click',()=>setTimeout(updateProgress,120)));
+}
+function updateFooter(){const l=langs[current];const month=new Intl.DateTimeFormat(current==='no'?'nb-NO':current+'-'+current.toUpperCase(),{month:'long'}).format(new Date());document.getElementById('updated').textContent=`${l.updated} ${month} ${new Date().getFullYear()}.`;const d=document.querySelector('.footer-disclaimer');if(d)d.textContent=l.disclaimer||'Dette er en uoffisiell informasjonsside og er ikke en offisiell nettside fra Telenor.';}
 function setLang(k){current=k;renderLangs();applyText();renderSteps();updateFooter();langWrap.classList.remove('open');mobileMenu.classList.remove('open');window.scrollTo({top:0,behavior:'smooth'});setTimeout(updateProgress,80);}
 langBtn.addEventListener('click',()=>langWrap.classList.toggle('open'));langMenu.addEventListener('click',e=>{const b=e.target.closest('[data-lang]');if(b)setLang(b.dataset.lang)});document.addEventListener('click',e=>{if(!langWrap.contains(e.target))langWrap.classList.remove('open')});
 const mobileMenuBtn=document.getElementById('mobileMenuBtn');mobileMenuBtn.addEventListener('click',()=>mobileMenu.classList.toggle('open'));mobileMenu.addEventListener('click',e=>{if(e.target.closest('a'))mobileMenu.classList.remove('open')});const mobileTopBtn=document.getElementById('mobileTopBtn');mobileTopBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
-const backtop=document.getElementById('backtop');
 const mobileProgress=document.getElementById('mobileProgress');
 function updateProgress(){
   const cards=[...document.querySelectorAll('.step')];
   let idx=0;
   for(let i=0;i<cards.length;i++){ if(window.scrollY+window.innerHeight*0.32 >= cards[i].offsetTop) idx=i; }
-  const maxScroll=Math.max(1,document.documentElement.scrollHeight-window.innerHeight);
+  const contact=document.getElementById('contact');
+  const pageEnd=contact ? Math.max(0,contact.offsetTop+contact.offsetHeight-window.innerHeight) : Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+  const maxScroll=Math.max(1,pageEnd);
   const pct=Math.min(100,Math.max(0,Math.round((window.scrollY/maxScroll)*100)));
   document.getElementById('mobileLesson').textContent=`${langs[current].stepWord} ${idx+1} ${langs[current].of} ${cards.length}`;
-  document.getElementById('mobilePercent').textContent=pct+'%';
+  document.getElementById('mobilePercent').textContent=String(pct).replace('.',',')+'%';
   document.getElementById('progressFill').style.width=pct+'%';
-  document.getElementById('topGuidePercent').textContent=pct+'%';
-  document.getElementById('topGuideFill').style.width=pct+'%';
-  mobileProgress.style.display=window.scrollY>300?'block':'none';
+  const topFill=document.getElementById('topGuideFill');
+  const topPercent=document.getElementById('topGuidePercent');
+  const topLesson=document.getElementById('topGuideLesson');
+  if(topFill) topFill.style.width=pct+'%';
+  if(topPercent) topPercent.textContent=String(pct).replace('.',',')+'%';
+  if(topLesson) topLesson.textContent=`${langs[current].stepWord} ${idx+1} ${langs[current].of} ${cards.length}`;
+  mobileProgress.style.display=window.scrollY>120?'block':'none';
   document.querySelector('.topbar').classList.toggle('scrolled',window.scrollY>300);
-  backtop.classList.toggle('show',window.scrollY>700);
+  const up=document.getElementById('scrollUpBtn');
+  const down=document.getElementById('scrollDownBtn');
+  if(up) up.classList.toggle('show',pct>20);
+  if(down) down.classList.toggle('show',pct>10 && pct<90);
   updateActiveNav();
 }
 window.addEventListener('scroll',updateProgress,{passive:true});
 
 const heroNavLinks=[...document.querySelectorAll('.hero-nav a')];
+let selectedSpecial=false;
+let selectedContact=false;
 function updateActiveNav(){
   const targets=[{id:'process'},{id:'risk'},{id:'guide'}];
   let active='process';
   const y=window.scrollY+180;
   for(const t of targets){const el=document.getElementById(t.id);if(el && y>=el.offsetTop) active=t.id;}
   heroNavLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+active));
-  document.querySelectorAll('.mobile-section-link').forEach(a=>a.classList.toggle('active',a.dataset.section===active));document.querySelectorAll('.mobile-quick-nav a').forEach(a=>a.classList.toggle('active',a.dataset.section===active));
+  document.querySelectorAll('.mobile-section-link').forEach(a=>a.classList.toggle('active',a.dataset.section===active));
+  document.querySelectorAll('.mobile-quick-nav a').forEach(a=>a.classList.toggle('active',a.dataset.section===active));
+
   const cards=[...document.querySelectorAll('.step')];
-  let idx=0; for(let i=0;i<cards.length;i++){if(window.scrollY+window.innerHeight*.32>=cards[i].offsetTop)idx=i;}
-  document.querySelectorAll('.mobile-step-link').forEach((a,i)=>a.classList.toggle('active',i===idx));
-  document.querySelectorAll('.side-link').forEach((a,i)=>a.classList.toggle('active',i===idx));
+  const viewportCenter=window.scrollY+window.innerHeight/2;
+  let idx=-1;
+  cards.forEach((card,i)=>{
+    const top=card.offsetTop;
+    const bottom=top+card.offsetHeight;
+    if(viewportCenter>=top && viewportCenter<=bottom) idx=i;
+  });
+
+  // Process links are active only while the viewport is actually inside that step.
+  // This prevents step 8 from staying active at the bottom/contact area.
+  const stepSideLinks=[...document.querySelectorAll('.side-step-link')];
+  stepSideLinks.forEach((a,i)=>a.classList.toggle('active',i===idx));
+  document.querySelectorAll('.mobile-step-process-link').forEach((a,i)=>a.classList.toggle('active',i===idx));
+
+  // Tips are one shared destination. Only highlight them while the viewport is
+  // actually inside the two tip cards — never while the T-We guide or contact
+  // area is visible below them.
+  const specialTargets=[...document.querySelectorAll('.side-special-link')]
+    .map(a=>({a,id:a.getAttribute('href')?.slice(1),el:document.getElementById(a.getAttribute('href')?.slice(1))}))
+    .filter(x=>x.el);
+  const specialMobile=[...document.querySelectorAll('.mobile-special-link')];
+  const specialEls=specialTargets.map(x=>x.el);
+  const inSpecialArea=specialEls.some(el=>viewportCenter>=el.offsetTop && viewportCenter<=el.offsetTop+el.offsetHeight);
+
+  // Contact is its own destination and clears all process/tip highlighting.
+  const contact=document.getElementById('contact');
+  const inContactArea=!!contact && viewportCenter>=contact.offsetTop && viewportCenter<=contact.offsetTop+contact.offsetHeight;
+
+  const tipsSelected=!!inSpecialArea && !inContactArea;
+  specialTargets.forEach(item=>item.a.classList.toggle('active',tipsSelected));
+  specialMobile.forEach(a=>a.classList.toggle('active',tipsSelected));
+
+  if(tipsSelected || inContactArea || idx===-1){
+    stepSideLinks.forEach(a=>a.classList.remove('active'));
+    document.querySelectorAll('.mobile-step-process-link').forEach(a=>a.classList.remove('active'));
+  }
+  if(inContactArea || !tipsSelected){
+    if(inContactArea){
+      specialTargets.forEach(item=>item.a.classList.remove('active'));
+      specialMobile.forEach(a=>a.classList.remove('active'));
+    }
+  }
 }
 heroNavLinks.forEach(a=>a.addEventListener('click',()=>setTimeout(updateActiveNav,50)));
 document.querySelectorAll('.mobile-quick-nav a').forEach(a=>a.addEventListener('click',()=>setTimeout(updateActiveNav,50)));
 heroNavLinks.forEach(a=>a.addEventListener('click',()=>setTimeout(updateActiveNav,80)));
-document.querySelectorAll('.side-link').forEach(a=>a.addEventListener('click',()=>setTimeout(updateActiveNav,80)));
+document.querySelectorAll('.side-link').forEach(a=>a.addEventListener('click',e=>{
+  const href=a.getAttribute('href')||'';
+  if(href==='#extra'||href==='#ground'){
+    e.preventDefault();
+    selectedSpecial=true;
+    selectedContact=false;
+    document.querySelectorAll('.side-step-link,.mobile-step-process-link').forEach(x=>x.classList.remove('active'));
+    document.querySelectorAll('.side-special-link,.mobile-special-link').forEach(x=>x.classList.add('active'));
+    const target=document.getElementById(href.slice(1));
+    if(target) target.scrollIntoView({behavior:'smooth',block:'center'});
+    setTimeout(updateActiveNav,250);
+  }else{
+    selectedSpecial=false;
+    selectedContact=false;
+    document.querySelectorAll('.side-special-link,.mobile-special-link').forEach(x=>x.classList.remove('active'));
+    setTimeout(updateActiveNav,80);
+  }
+}));
 
-backtop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+// Contact is its own destination: clicking it clears every process/tip highlight.
+document.querySelectorAll('a[href="#contact"]').forEach(a=>a.addEventListener('click',()=>{
+  selectedContact=true;
+  selectedSpecial=false;
+  document.querySelectorAll('.side-link,.mobile-step-process-link,.mobile-special-link').forEach(x=>x.classList.remove('active'));
+  setTimeout(updateActiveNav,120);
+}));
+
+const scrollUpBtn=document.getElementById('scrollUpBtn');
+const scrollDownBtn=document.getElementById('scrollDownBtn');
+function scrollToStep(index){
+  const cards=[...document.querySelectorAll('.step')];
+  if(!cards.length)return;
+  const target=Math.max(0,Math.min(cards.length-1,index));
+  cards[target].scrollIntoView({behavior:'smooth',block:'start'});
+}
+scrollUpBtn.addEventListener('click',()=>{
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+scrollDownBtn.addEventListener('click',()=>{
+  window.scrollTo({top:document.documentElement.scrollHeight,behavior:'smooth'});
+});
 applyText();renderLangs();renderSteps();updateFooter();updateProgress();updateActiveNav();
 </script>
 </body>
