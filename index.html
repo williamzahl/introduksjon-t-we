@@ -540,15 +540,26 @@ h2.st{font-size:22px;color:var(--navy);margin:34px 0 14px;font-weight:650}
       <div class="topright">
         <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-expanded="false"><span class="mobile-menu-icon" aria-hidden="true">☰</span> <span id="mobileMenuText">Meny</span></button>
         <div class="count" id="count">Leksjon 1 av 7</div>
-        <label class="lang">🌐
-          <select id="languageSelect" aria-label="Language">
+        <div class="lang" id="languagePicker">
+          <span class="lang-globe" aria-hidden="true">🌐</span>
+          <button class="lang-button" id="languageButton" type="button" aria-haspopup="listbox" aria-expanded="false">
+            <span id="languageButtonText">Norsk</span><span class="lang-chevron" aria-hidden="true">⌄</span>
+          </button>
+          <div class="lang-menu" id="languageMenu" role="listbox" aria-label="Language">
+            <button class="lang-option active" type="button" data-lang="no" role="option">Norsk</button>
+            <button class="lang-option" type="button" data-lang="en" role="option">English</button>
+            <button class="lang-option" type="button" data-lang="de" role="option">Deutsch</button>
+            <button class="lang-option" type="button" data-lang="es" role="option">Español</button>
+            <button class="lang-option" type="button" data-lang="pl" role="option">Polski</button>
+          </div>
+          <select id="languageSelect" aria-hidden="true" tabindex="-1">
             <option value="no">Norsk</option>
             <option value="en">English</option>
             <option value="de">Deutsch</option>
             <option value="es">Español</option>
             <option value="pl">Polski</option>
           </select>
-        </label>
+        </div>
       </div>
     </div>
     <div class="progress">
@@ -836,6 +847,52 @@ const langSelect=document.getElementById("languageSelect");
 let lang=localStorage.getItem("tweLang")||"no";
 if(!T[lang]) lang="no";
 langSelect.value=lang;
+const languagePicker=document.getElementById("languagePicker");
+const languageButton=document.getElementById("languageButton");
+const languageButtonText=document.getElementById("languageButtonText");
+const languageMenu=document.getElementById("languageMenu");
+
+
+function syncLanguageControlWidth(){
+  if(!window.matchMedia("(max-width: 620px)").matches) return;
+  const topRight=document.querySelector(".topright");
+  const langBox=document.getElementById("languagePicker");
+  const menuBtn=document.getElementById("mobileMenuBtn");
+  if(!topRight || !langBox || !menuBtn) return;
+
+  // Measure the natural width needed by the current language label,
+  // then give BOTH boxes that same width.
+  const button=document.getElementById("languageButton");
+  const label=document.getElementById("languageButtonText");
+  if(!button || !label) return;
+
+  const previous=topRight.style.getPropertyValue("--language-control-width");
+  topRight.style.setProperty("--language-control-width","max-content");
+
+  const needed=Math.ceil(
+    label.getBoundingClientRect().width +
+    15 +  // globe
+    4 +   // gap
+    13 +  // chevron
+    18    // horizontal breathing room
+  );
+
+  const width=Math.max(112, Math.min(needed, window.innerWidth-210));
+  topRight.style.setProperty("--language-control-width", width+"px");
+}
+
+function updateLanguagePicker(){
+  const names={no:"Norsk",en:"English",de:"Deutsch",es:"Español",pl:"Polski"};
+  if(languageButtonText) languageButtonText.textContent=names[lang]||"Norsk";
+  syncLanguageControlWidth();
+  if(languageMenu){
+    languageMenu.querySelectorAll(".lang-option").forEach(o=>{
+      const active=o.dataset.lang===lang;
+      o.classList.toggle("active",active);
+      o.setAttribute("aria-selected",String(active));
+    });
+  }
+}
 
 const side=document.getElementById("side");
 const content=document.getElementById("content");
@@ -862,6 +919,7 @@ function updateMobileSticky(){
 
 function render(){
   const t=T[lang], L=t.lessons;
+  updateLanguagePicker();
   document.documentElement.lang=lang;
   document.title=t.brand.replace(/<br\s*\/?\s*>/gi," ");
   document.getElementById("brand").innerHTML=window.matchMedia("(max-width: 620px)").matches ? t.brand : t.brand.replace(/<br\s*\/?\s*>/gi," ").replace(/(T-We)\s+(Introduksjon)/,"$1\u00a0\u00a0\u00a0\u00a0$2");
@@ -1042,10 +1100,32 @@ document.addEventListener("click",(e)=>{
     w.classList.remove("open");
     document.getElementById("twePageButton")?.setAttribute("aria-expanded","false");
   }
+  const lp=document.getElementById("languagePicker");
+  if(lp && !lp.contains(e.target)){
+    lp.classList.remove("open");
+    document.getElementById("languageButton")?.setAttribute("aria-expanded","false");
+  }
 });
 
-langSelect.addEventListener("change",()=>{
-  lang=langSelect.value;localStorage.setItem("tweLang",lang);render();go(current);syncLessonToScroll();
+languageButton?.addEventListener("click",(e)=>{
+  e.stopPropagation();
+  const open=languagePicker.classList.toggle("open");
+  languageButton.setAttribute("aria-expanded",String(open));
+});
+
+languageMenu?.querySelectorAll(".lang-option").forEach(option=>{
+  option.addEventListener("click",()=>{
+    const next=option.dataset.lang;
+    if(!T[next]) return;
+    lang=next;
+    langSelect.value=lang;
+    localStorage.setItem("tweLang",lang);
+    languagePicker.classList.remove("open");
+    languageButton?.setAttribute("aria-expanded","false");
+    render();
+    go(current);
+    syncLessonToScroll();
+  });
 });
 window.addEventListener("scroll",()=>{updateProgress();syncLessonToScroll()},{passive:true});
 function updateProgress(){
@@ -1209,6 +1289,151 @@ updateFooterUpdated();
 })();
 </script>
 
+
+<style id="language-dropdown-latest">
+/* Custom language picker: avoids the oversized native iPhone/Safari select popup. */
+.lang{
+  position:relative !important;
+  display:flex !important;
+  align-items:center !important;
+  gap:7px !important;
+  width:112px !important;
+  min-width:112px !important;
+  height:38px !important;
+  padding:0 9px !important;
+  border:1px solid rgba(255,255,255,.28) !important;
+  background:rgba(255,255,255,.09) !important;
+  border-radius:11px !important;
+  box-sizing:border-box !important;
+}
+.lang-globe{
+  flex:0 0 auto;
+  font-size:14px;
+  line-height:1;
+}
+.lang-button{
+  appearance:none !important;
+  -webkit-appearance:none !important;
+  border:0 !important;
+  background:transparent !important;
+  color:#fff !important;
+  width:100% !important;
+  min-width:0 !important;
+  height:100% !important;
+  padding:0 !important;
+  margin:0 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:5px !important;
+  font:inherit !important;
+  font-size:12px !important;
+  font-weight:700 !important;
+  line-height:1 !important;
+  text-align:center !important;
+  cursor:pointer !important;
+}
+.lang-button:focus-visible{
+  outline:2px solid rgba(255,255,255,.8);
+  outline-offset:2px;
+  border-radius:7px;
+}
+.lang-chevron{
+  font-size:13px;
+  line-height:1;
+  transform:translateY(-1px);
+}
+.lang-menu{
+  position:absolute !important;
+  right:0 !important;
+  top:calc(100% + 10px) !important;
+  z-index:140 !important;
+  display:none !important;
+  width:150px !important;
+  padding:6px !important;
+  box-sizing:border-box !important;
+  border:1px solid rgba(255,255,255,.20) !important;
+  border-radius:17px !important;
+  background:rgba(18,62,96,.96) !important;
+  box-shadow:0 16px 34px rgba(0,0,0,.20) !important;
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+}
+.lang.open .lang-menu{
+  display:block !important;
+}
+.lang-option{
+  appearance:none !important;
+  -webkit-appearance:none !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  width:100% !important;
+  min-height:42px !important;
+  margin:0 !important;
+  padding:8px 8px !important;
+  border:0 !important;
+  border-radius:11px !important;
+  background:transparent !important;
+  color:#fff !important;
+  font:inherit !important;
+  font-size:14px !important;
+  font-weight:500 !important;
+  line-height:1.2 !important;
+  text-align:center !important;
+  white-space:nowrap !important;
+  cursor:pointer !important;
+}
+.lang-option:hover,
+.lang-option.active{
+  background:rgba(255,255,255,.12) !important;
+}
+.lang-option.active::before{
+  content:"✓";
+  position:absolute;
+  margin-left:-112px;
+  font-size:14px;
+  font-weight:700;
+}
+#languageSelect{
+  position:absolute !important;
+  width:1px !important;
+  height:1px !important;
+  opacity:0 !important;
+  pointer-events:none !important;
+}
+
+@media(max-width:620px){
+  .lang{
+    width:96px !important;
+    min-width:96px !important;
+    height:34px !important;
+    padding:0 7px !important;
+    gap:5px !important;
+  }
+  .lang-globe{font-size:13px}
+  .lang-button{
+    font-size:11px !important;
+    gap:4px !important;
+  }
+  .lang-menu{
+    top:calc(100% + 11px) !important;
+    width:150px !important;
+    right:-2px !important;
+    padding:6px !important;
+    border-radius:17px !important;
+  }
+  .lang-option{
+    min-height:43px !important;
+    font-size:15px !important;
+    font-weight:500 !important;
+  }
+  .lang-option.active::before{
+    margin-left:-114px;
+  }
+}
+</style>
+
 </html>
 
 <style id="mobile-title-break-v18">
@@ -1217,3 +1442,420 @@ updateFooterUpdated();
   .twe-title-break{display:block}
 }
 </style>
+<style id="menu-outside-and-header-polish">
+/* Close the mobile navigation whenever the user taps outside the menu. */
+@media (max-width:620px){
+  .side.mobile-open{
+    z-index:120 !important;
+  }
+
+  /* Subtle Telenor-inspired blue depth instead of a flat blue header. */
+  .top{
+    background:
+      radial-gradient(circle at 18% 20%, rgba(255,255,255,.13) 0%, rgba(255,255,255,0) 34%),
+      radial-gradient(circle at 88% 80%, rgba(0,55,150,.18) 0%, rgba(0,55,150,0) 42%),
+      linear-gradient(135deg,#0878c9 0%,#168bd3 48%,#0078c8 100%) !important;
+  }
+
+  .mobile-sticky{
+    background:
+      radial-gradient(circle at 20% 10%, rgba(255,255,255,.11) 0%, rgba(255,255,255,0) 36%),
+      radial-gradient(circle at 85% 90%, rgba(0,55,150,.18) 0%, rgba(0,55,150,0) 44%),
+      linear-gradient(135deg,#0878c9 0%,#168bd3 48%,#0078c8 100%) !important;
+  }
+}
+
+/* Give the same subtle gradient treatment on larger screens. */
+@media (min-width:621px){
+  .top{
+    background:
+      radial-gradient(circle at 18% 20%, rgba(255,255,255,.12) 0%, rgba(255,255,255,0) 34%),
+      radial-gradient(circle at 88% 80%, rgba(0,55,150,.16) 0%, rgba(0,55,150,0) 42%),
+      linear-gradient(135deg,#0878c9 0%,#168bd3 48%,#0078c8 100%) !important;
+  }
+}
+</style>
+
+<script id="close-mobile-menu-outside">
+(function(){
+  document.addEventListener("click",function(e){
+    const side=document.getElementById("side");
+    if(!side || !side.classList.contains("mobile-open")) return;
+
+    const menuButton=document.getElementById("mobileMenuBtn");
+    const stickyButton=document.getElementById("stickyMenuBtn");
+
+    /* Keep the menu open when tapping the menu itself or either menu button. */
+    if(side.contains(e.target) || menuButton?.contains(e.target) || stickyButton?.contains(e.target)) return;
+
+    side.classList.remove("mobile-open");
+    menuButton?.setAttribute("aria-expanded","false");
+  },true);
+})();
+</script>
+
+<style id="mobile-header-final-v19">
+@media(max-width:620px){
+  /* The large mobile header does not need the lesson counter; it remains in the sticky bar while scrolling. */
+  .top #count{display:none !important;}
+
+  /* Language and Menu use the same visual language: identical centering, height, typography and icon scale. */
+  .topright{
+    align-items:flex-end !important;
+    gap:12px !important;
+  }
+  .topright .lang,
+  .topright .mobile-menu-btn{
+    box-sizing:border-box !important;
+    height:58px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    border:2px solid rgba(255,255,255,.28) !important;
+    background:rgba(255,255,255,.07) !important;
+    border-radius:18px !important;
+    padding:0 16px !important;
+  }
+  .topright .lang{
+    width:150px !important;
+    min-width:150px !important;
+    max-width:none !important;
+    gap:10px !important;
+  }
+  .topright .mobile-menu-btn{
+    width:128px !important;
+    min-width:128px !important;
+    gap:10px !important;
+    font-size:18px !important;
+    font-weight:750 !important;
+  }
+  .topright .lang-button{
+    justify-content:center !important;
+    gap:8px !important;
+    font-size:18px !important;
+    font-weight:750 !important;
+  }
+  .topright .lang-globe{
+    font-size:25px !important;
+    line-height:1 !important;
+  }
+  .topright .lang-chevron{
+    font-size:20px !important;
+    line-height:1 !important;
+  }
+  .topright .mobile-menu-icon{
+    font-size:30px !important;
+    line-height:1 !important;
+  }
+}
+</style>
+
+<style id="mobile-header-size-fix-v20">
+@media(max-width:620px){
+  /* Litt lavere toppmeny, uten å endre desktop-layouten. */
+  .top{
+    padding:14px 16px 16px !important;
+  }
+  .topright{
+    gap:8px !important;
+  }
+  .topright .lang,
+  .topright .mobile-menu-btn{
+    height:50px !important;
+    border-radius:16px !important;
+    border-width:2px !important;
+    padding:0 13px !important;
+  }
+  .topright .lang{
+    width:150px !important;
+    min-width:150px !important;
+    gap:7px !important;
+  }
+  .topright .mobile-menu-btn{
+    width:128px !important;
+    min-width:128px !important;
+    gap:8px !important;
+    font-size:16px !important;
+  }
+  .topright .lang-button{
+    gap:6px !important;
+    font-size:16px !important;
+  }
+  .topright .lang-globe{
+    font-size:20px !important;
+  }
+  .topright .lang-chevron{
+    font-size:17px !important;
+  }
+  .topright .mobile-menu-icon{
+    font-size:23px !important;
+  }
+  .progress{
+    margin-top:14px !important;
+  }
+}
+</style>
+
+<style id="mobile-header-final-v21">
+@media(max-width:620px){
+  /* Final compact controls: smaller boxes, identical internal alignment, and no duplicate menu icon. */
+  .topright .lang,
+  .topright .mobile-menu-btn{
+    height:44px !important;
+    border-radius:14px !important;
+    border-width:2px !important;
+    padding:0 10px !important;
+    box-sizing:border-box !important;
+    align-items:center !important;
+    justify-content:center !important;
+  }
+
+  .topright .lang{
+    width:136px !important;
+    min-width:136px !important;
+    gap:6px !important;
+  }
+
+  .topright .mobile-menu-btn{
+    width:116px !important;
+    min-width:116px !important;
+    gap:7px !important;
+    font-size:15px !important;
+    line-height:1 !important;
+  }
+
+  .topright .lang-button{
+    height:100% !important;
+    justify-content:center !important;
+    align-items:center !important;
+    gap:5px !important;
+    font-size:15px !important;
+    line-height:1 !important;
+  }
+
+  .topright .lang-globe{
+    font-size:18px !important;
+    line-height:1 !important;
+  }
+
+  .topright .lang-chevron{
+    font-size:15px !important;
+    line-height:1 !important;
+  }
+
+  /* Hide the literal ☰ character and use only the three CSS bars. */
+  .topright .mobile-menu-icon{
+    font-size:0 !important;
+    line-height:0 !important;
+    width:18px !important;
+    height:13px !important;
+    flex:0 0 18px !important;
+    position:relative !important;
+    display:inline-block !important;
+  }
+  .topright .mobile-menu-icon::before{
+    content:"" !important;
+    position:absolute !important;
+    left:0 !important;
+    top:0 !important;
+    width:18px !important;
+    height:2.5px !important;
+    background:currentColor !important;
+    border-radius:3px !important;
+    box-shadow:0 5px 0 currentColor,0 10px 0 currentColor !important;
+  }
+
+  /* Keep the sticky/swipe-down mini menu unchanged except for its single icon. */
+  .mobile-sticky .sticky-menu-icon{
+    font-size:0 !important;
+  }
+}
+</style>
+
+
+<style id="mobile-controls-and-language-fit-v22">
+/* V22: smaller mobile header controls + language-safe T-We page selector. */
+@media(max-width:620px){
+  /* Make the two top controls compact without changing their centered layout. */
+  .topright .lang,
+  .topright .mobile-menu-btn{
+    height:40px !important;
+    border-radius:13px !important;
+    border-width:2px !important;
+    padding:0 9px !important;
+    box-sizing:border-box !important;
+  }
+
+  .topright .lang{
+    width:124px !important;
+    min-width:124px !important;
+    gap:5px !important;
+  }
+
+  .topright .mobile-menu-btn{
+    width:106px !important;
+    min-width:106px !important;
+    gap:6px !important;
+    font-size:14px !important;
+    line-height:1 !important;
+  }
+
+  .topright .lang-button{
+    height:100% !important;
+    justify-content:center !important;
+    align-items:center !important;
+    gap:4px !important;
+    font-size:14px !important;
+    line-height:1 !important;
+  }
+
+  .topright .lang-globe{
+    font-size:16px !important;
+    line-height:1 !important;
+  }
+
+  .topright .lang-chevron{
+    font-size:14px !important;
+    line-height:1 !important;
+  }
+
+  .topright .mobile-menu-icon,
+  .topright .mobile-menu-icon::before{
+    width:16px !important;
+  }
+
+  .topright .mobile-menu-icon{
+    height:12px !important;
+    flex-basis:16px !important;
+  }
+
+  .topright .mobile-menu-icon::before{
+    height:2.25px !important;
+    box-shadow:0 4.8px 0 currentColor,0 9.6px 0 currentColor !important;
+  }
+
+  /* The T-We page selector must grow for translated labels instead of clipping them. */
+  .twe-page-select{
+    width:max-content !important;
+    min-width:78px !important;
+    max-width:calc(100vw - 32px) !important;
+  }
+
+  .twe-page-button{
+    width:max-content !important;
+    min-width:78px !important;
+    max-width:calc(100vw - 32px) !important;
+    padding:7px 10px !important;
+    white-space:nowrap !important;
+  }
+
+  .twe-page-menu{
+    width:max-content !important;
+    min-width:145px !important;
+    max-width:calc(100vw - 32px) !important;
+    padding:5px !important;
+  }
+
+  .twe-page-option{
+    width:max-content !important;
+    min-width:100% !important;
+    max-width:100% !important;
+    box-sizing:border-box !important;
+    padding:9px 10px !important;
+    white-space:nowrap !important;
+  }
+}
+</style>
+
+
+<style id="mobile-controls-v23">
+/* V23: both controls are equally sized, slightly smaller, and expand together
+   when a translated language name is longer. */
+@media(max-width:620px){
+  .topright{
+    align-items:flex-end !important;
+  }
+
+  .topright .lang,
+  .topright .mobile-menu-btn{
+    height:38px !important;
+    min-height:38px !important;
+    width:max-content !important;
+    min-width:112px !important;
+    max-width:calc(100vw - 210px) !important;
+    box-sizing:border-box !important;
+    padding:0 9px !important;
+    border-radius:12px !important;
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+  }
+
+  /* Language width follows its translated label. */
+  .topright .lang{
+    flex:0 1 auto !important;
+  }
+
+  .topright .lang-button{
+    width:auto !important;
+    min-width:0 !important;
+    flex:0 1 auto !important;
+    padding:0 !important;
+    font-size:13px !important;
+    gap:4px !important;
+  }
+
+  .topright .lang-globe{
+    font-size:15px !important;
+    flex:0 0 auto !important;
+  }
+
+  .topright .lang-chevron{
+    font-size:13px !important;
+    flex:0 0 auto !important;
+  }
+
+  /* Menu has the same width as the language box in the current language. */
+  .topright .mobile-menu-btn{
+    flex:0 0 auto !important;
+    font-size:13px !important;
+    gap:6px !important;
+  }
+
+  .topright .mobile-menu-icon{
+    width:15px !important;
+    height:11px !important;
+    flex:0 0 15px !important;
+  }
+
+  .topright .mobile-menu-icon::before{
+    width:15px !important;
+    height:2.1px !important;
+    box-shadow:0 4.4px 0 currentColor,0 8.8px 0 currentColor !important;
+  }
+
+  /* Make both boxes match the wider of the two labels. */
+  .topright{
+    --control-width:112px;
+  }
+
+  .topright .lang,
+  .topright .mobile-menu-btn{
+    width:var(--control-width) !important;
+  }
+
+  /* Longer translated language labels expand the shared width. */
+  .topright .lang:has(.lang-button[data-long-language="true"]){
+    width:var(--control-width) !important;
+  }
+}
+
+/* Shared width is set by JS after each language change. */
+@media(max-width:620px){
+  .topright .lang,
+  .topright .mobile-menu-btn{
+    width:var(--language-control-width,112px) !important;
+  }
+}
+</style>
+<script>window.addEventListener("resize",syncLanguageControlWidth);</script>
